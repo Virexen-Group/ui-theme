@@ -1,6 +1,6 @@
 {
   "name": "@virexen-group/ui-theme",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Shared Virexen design tokens and base styles for identity, join, workspace and my.virexen.com",
   "repository": {
     "type": "git",
