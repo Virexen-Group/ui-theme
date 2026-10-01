@@ -1,0 +1,29 @@
+{
+  "name": "@virexen-group/ui-theme",
+  "version": "0.1.0",
+  "description": "Shared Virexen design tokens and base styles for identity, join, workspace and my.virexen.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Virexen-Group/ui-theme.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  },
+  "type": "module",
+  "exports": {
+    "./theme.css": "./dist/theme.css",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && mkdir dist && cp src/theme.css dist/theme.css",
+    "lint": "stylelint 'src/**/*.css'",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "stylelint": "^16.0.0"
+  }
+}
