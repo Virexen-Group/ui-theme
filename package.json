@@ -13,13 +13,14 @@
   "type": "module",
   "exports": {
     "./theme.css": "./dist/theme.css",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./fonts/*": "./dist/fonts/*"
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "rm -rf dist && mkdir dist && cp src/theme.css dist/theme.css",
+    "build": "rm -rf dist && mkdir -p dist/fonts && cp src/theme.css dist/theme.css && cp src/fonts/*.woff2 src/fonts/LICENSE dist/fonts/",
     "lint": "stylelint 'src/**/*.css'",
     "prepublishOnly": "npm run build"
   },
