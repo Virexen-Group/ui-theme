@@ -25,3 +25,21 @@ For future changes, edit src/theme.css, validate and commit, run `npm version pa
 Manrope is the primary body and display font through `--font-body` and `--font-display`. The packaged variable WOFF2 fonts support weights 200–800, with Latin, extended Latin, Cyrillic, Greek and Vietnamese subsets. Browsers fetch only the subsets they need; `font-display: swap` retains readable fallback text during loading. Fonts are served by each consuming app, with no external font service. Code and credential surfaces may retain monospace fonts.
 
 Font assets originate from `@fontsource-variable/manrope@5.3.0`, Copyright 2019 The Manrope Project Authors, under the SIL Open Font License bundled at `src/fonts/LICENSE` and `dist/fonts/LICENSE`. PWA builds that copy the theme stylesheet must also copy/cache `dist/fonts` so relative font URLs work offline.
+
+## HTML emails
+
+The server-side export `@virexen-group/ui-theme/email` supplies the common Virexen
+email shell and a safe, non-executable placeholder renderer. Store individual
+template definitions in your template service/database, not in this package.
+
+```js
+import { renderEmail } from '@virexen-group/ui-theme/email';
+const message = renderEmail(templateFromDatabase, { name: 'Alex', code: '123456' }, { to: 'alex@example.test' });
+```
+
+Definitions contain `subject`, `title`, `preheader`, `html`, `text` and
+`urlVariables`. Both `{{name}}` and `{name}` work. Variables are strings; missing
+values, unsafe URL variables and subject newlines fail rendering. HTML values
+are escaped and editable HTML is sanitized. The shell uses inline styles and
+tables for email clients. No scripts, arbitrary expressions or raw HTML variable
+injection are supported. This package contains no delivery credentials.

@@ -1,6 +1,6 @@
 {
   "name": "@virexen-group/ui-theme",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Shared Virexen design tokens and base styles for identity, join, workspace and my.virexen.com",
   "repository": {
     "type": "git",
@@ -14,17 +14,25 @@
   "exports": {
     "./theme.css": "./dist/theme.css",
     "./package.json": "./package.json",
-    "./fonts/*": "./dist/fonts/*"
+    "./fonts/*": "./dist/fonts/*",
+    "./email": {
+      "types": "./dist/email.d.ts",
+      "import": "./dist/email.js"
+    }
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "rm -rf dist && mkdir -p dist/fonts && cp src/theme.css dist/theme.css && cp src/fonts/*.woff2 src/fonts/LICENSE dist/fonts/",
+    "build": "rm -rf dist && mkdir -p dist/fonts && cp src/theme.css dist/theme.css && cp src/fonts/*.woff2 src/fonts/LICENSE dist/fonts/ && cp src/email.js src/email.d.ts dist/",
     "lint": "stylelint 'src/**/*.css'",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "test": "node --test tests/*.test.js"
   },
   "devDependencies": {
     "stylelint": "^16.0.0"
+  },
+  "dependencies": {
+    "sanitize-html": "^2.18.0"
   }
 }
