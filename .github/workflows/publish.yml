@@ -17,10 +17,10 @@ jobs:
           scope: "@virexen-group"
       - name: Tag matches package.json version
         run: test "v$(node -p 'require("./package.json").version')" = "$GITHUB_REF_NAME"
-      - run: npm ci
-      - run: npm test
-      - run: npm run lint
-      - run: npm run build
-      - run: npm publish
+      - run: pnpm ci
+      - run: pnpm test
+      - run: pnpm run lint
+      - run: pnpm run build
+      - run: pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
