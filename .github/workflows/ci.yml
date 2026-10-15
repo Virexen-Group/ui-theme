@@ -38,10 +38,10 @@ jobs:
         run: pnpm test
 
       - name: Run unit tests
-        run: pnpm run test:unit --if-present
+        run: pnpm run test:unit
 
       - name: Lint
-        run: pnpm run lint --if-present
+        run: pnpm --if-present run lint
 
       - name: Build package
         run: pnpm build
