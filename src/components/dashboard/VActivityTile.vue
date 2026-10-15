@@ -1,0 +1,2 @@
+<script setup lang="ts">defineProps<{title?:string;items:{id:string;title:string;description?:string;time?:string}[]}>();</script>
+<template><article class="vx-dash-tile"><div class="vx-dash-label">{{title||'Recent activity'}}</div><ul class="vx-dash-activity"><li v-for="item in items" :key="item.id"><strong>{{item.title}}</strong><span>{{item.description}}</span><small>{{item.time}}</small></li></ul><p v-if="!items.length" class="vx-dash-sub">No recent activity.</p></article></template>

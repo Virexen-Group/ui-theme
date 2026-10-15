@@ -1,0 +1,1 @@
+<script setup lang="ts">withDefaults(defineProps<{minWidth?:string;gap?:string}>(),{minWidth:'260px',gap:'16px'})</script><template><div class="vx-grid" :style="{'--vx-grid-min':minWidth,'--vx-grid-gap':gap}"><slot/></div></template>

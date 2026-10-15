@@ -14,7 +14,7 @@ const choices = [{label:'Staff',value:'staff',description:'Staff member'}, {labe
     <div style="max-width:800px;margin:32px auto;padding:20px;display:grid;gap:24px">
       <h2>Extended Virexen components</h2>
       <section class="panel" style="padding:22px"><h3>Searchable select</h3><VSearchSelect v-model="selected" :options="choices" placeholder="Choose a role" /><p>Selected: {{ selected }}</p></section>
-      <section class="panel" style="padding:22px"><h3>File uploads & previews</h3><VFileUpload label="Attach files" multiple accept="image/*,.pdf" @change="files => lastAction = `${files.length} files selected`" /></section>
+      <section class="panel" style="padding:22px"><h3>File uploads & previews</h3><VFileUpload label="Attach files" multiple accept="image/*,.pdf" @change="(files: File[]) => lastAction = `${files.length} files selected`" /></section>
       <section class="panel" style="padding:22px"><h3>Standalone account selector</h3><VUserMenu :user="user" :items="menu" @select="id => lastAction = id" /></section>
       <p role="status">Last action: {{ lastAction }} <span v-if="query">· Header search: {{ query }}</span></p>
     </div>

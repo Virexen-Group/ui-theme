@@ -1,0 +1,1 @@
+<script setup lang="ts">defineProps<{dirty:boolean}>();const emit=defineEmits<{save:[];discard:[]}>();</script><template><div v-if="dirty" class="vx-unsaved-banner" role="status"><span>Unsaved changes</span><button type="button" @click="emit('discard')">Discard</button><button type="button" @click="emit('save')">Save changes</button></div></template>

@@ -1,0 +1,1 @@
+import {createApp} from 'vue';import Demo from './LayoutSystemDemo.vue';import '../src/theme.css';import '../src/styles/components.css';import '../src/styles/layout.css';import '../src/styles/utilities.css';import '../src/styles/brand.css';createApp(Demo).mount('#app');

@@ -1,0 +1,27 @@
+/* Additive Virexen component styles: mobile first; preserves existing .vx-button API */
+[data-vx-preset="default"]{--vx-action:#10aa9d;--vx-action-hover:#068b81;--vx-action-text:#fff;--vx-soft:#daf5ef;--vx-elevation:0 9px 24px rgba(15,23,42,.12);--vx-surface:var(--color-panel-strong,#fff);--vx-border:var(--color-line-strong,#dce2ed);--vx-text:var(--color-text,#142344)}
+[data-vx-preset="calm"]{--vx-action:#5f9bba;--vx-action-hover:#3e7899;--vx-soft:#e4f1f8;--vx-elevation:0 7px 19px rgba(30,70,102,.08)}
+:root,[data-vx-preset="bold"]{--vx-action:#193b9f;--vx-action-hover:#10296e;--vx-soft:#dce6ff;--vx-elevation:0 10px 26px rgba(18,37,100,.18)}
+[data-vx-preset="enterprise"]{--vx-action:#44566b;--vx-action-hover:#293a4b;--vx-soft:#edf0f3;--vx-elevation:0 7px 22px rgba(15,23,42,.09)}
+.vx-button{transition:background .17s ease,transform .17s ease,box-shadow .17s ease;gap:8px}
+.vx-button--primary{background:var(--vx-action);border-color:var(--vx-action);color:var(--vx-action-text)}
+.vx-button--primary:hover:not(:disabled){background:var(--vx-action-hover)}
+.vx-button--tertiary{border-color:transparent;background:transparent;color:var(--vx-action)}
+.vx-button--danger{background:#c42632;border-color:#c42632;color:#fff}
+.vx-button--soft.vx-button--primary,.vx-button--soft.vx-button--secondary{background:var(--vx-soft);border-color:transparent;color:var(--vx-text)}
+.vx-button--outline{background:transparent;border-color:var(--vx-action);color:var(--vx-action)}
+.vx-button--elevated{box-shadow:var(--vx-elevation)}
+.vx-button--elevated:hover:not(:disabled){transform:translateY(-2px)}
+.vx-button--sm{min-height:36px;padding:7px 12px;font-size:.85rem}.vx-button--lg{min-height:52px;padding:13px 22px}
+.vx-button--pill{border-radius:999px}.vx-button--square{border-radius:4px}.vx-button--icon-only{width:44px;padding:8px;justify-content:center}
+.vx-button__spinner{width:16px;height:16px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:vx-spin .8s linear infinite}
+@keyframes vx-spin{to{transform:rotate(360deg)}}
+.vx-notification{--vx-status:#64748b;display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:1px solid var(--vx-border);border-radius:12px;background:var(--vx-surface);color:var(--vx-text);min-width:0}
+.vx-notification--success{--vx-status:#078044}.vx-notification--info{--vx-status:#1667cf}.vx-notification--warning{--vx-status:#ac6800}.vx-notification--error{--vx-status:#c62932}
+.vx-notification--soft{background:color-mix(in srgb,var(--vx-status) 9%,var(--vx-surface));border-color:color-mix(in srgb,var(--vx-status) 22%,transparent)}
+.vx-notification--accent{border-left:4px solid var(--vx-status)}
+.vx-notification__icon{flex:none;color:var(--vx-status);margin-top:2px}.vx-notification__body{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 18px;flex:1;min-width:0;font-size:.87rem}.vx-notification__body strong{font-size:.9rem}.vx-notification__body span{color:var(--vx-text);opacity:.85}.vx-notification__dismiss{background:none;border:0;font-size:22px;color:var(--vx-text);cursor:pointer;min-width:36px;min-height:36px}.vx-notification__actions{display:flex;gap:8px;flex-wrap:wrap}.vx-notification__actions button{background:transparent;border:0;color:var(--vx-status);font-weight:700;cursor:pointer}.vx-notification--compact{padding:8px 10px}
+.vx-toast-stack{position:fixed;z-index:10000;inset:auto 12px 12px auto;display:grid;gap:10px;width:min(420px,calc(100vw - 24px));pointer-events:none}.vx-toast-stack--top-right,.vx-toast-stack--top-center{top:12px;bottom:auto}.vx-toast-stack--top-center,.vx-toast-stack--bottom-center{left:50%;right:auto;transform:translateX(-50%)}.vx-toast{position:relative;overflow:hidden;border-radius:12px;box-shadow:var(--vx-elevation);pointer-events:auto;animation:vx-toast-in .2s ease-out}.vx-toast__progress{position:absolute;bottom:0;left:0;height:3px;width:100%;background:var(--vx-action);transform-origin:left;animation:vx-toast-progress linear forwards}@keyframes vx-toast-in{from{opacity:0;transform:translateY(-7px)}to{opacity:1;transform:none}}@keyframes vx-toast-progress{from{transform:scaleX(1)}to{transform:scaleX(0)}}
+.vx-confirm{width:min(450px,calc(100vw - 24px));padding:24px;border:1px solid var(--vx-border);border-radius:18px;box-shadow:0 30px 90px #0004;background:var(--vx-surface);color:var(--vx-text)}.vx-confirm::backdrop{background:#0d193a99}.vx-confirm h2{margin:0 0 10px}.vx-confirm p{margin:0 0 20px}.vx-confirm__label{display:grid;gap:8px}.vx-confirm__actions{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:10px;margin-top:24px}
+@media(min-width:640px){.vx-toast-stack{right:24px;top:24px}.vx-notification__body{flex-direction:row}}
+@media(prefers-reduced-motion:reduce){.vx-button,.vx-toast{transition:none;animation:none}.vx-button__spinner,.vx-toast__progress{animation:none}}

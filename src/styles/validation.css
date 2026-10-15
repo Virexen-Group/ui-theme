@@ -1,0 +1,10 @@
+/* Virexen Master UI validation extensions — mobile-first */
+.vx-validated-field{display:grid;gap:7px;min-width:0}
+.vx-validated-field .vx-control{width:100%;min-width:0;min-height:44px}
+.vx-validated-error{margin:0;color:var(--vx-danger,var(--color-danger,#d1435a));font-size:.83rem;line-height:1.45}
+.vx-name-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+.vx-name-grid__error{grid-column:1/-1}
+.vx-validation-demo{max-width:1050px;margin:auto;padding:20px 16px 80px}
+.vx-validation-demo__panel{padding:22px;border:1px solid var(--vx-border,#ddd);background:var(--vx-surface,#fff);border-radius:20px;margin-top:18px;display:grid;gap:16px}
+.vx-validation-demo__row{display:grid;gap:14px}
+@media(min-width:700px){.vx-name-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.vx-validation-demo__row{grid-template-columns:repeat(2,minmax(0,1fr))}}

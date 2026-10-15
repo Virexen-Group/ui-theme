@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue';
-import ExtendedComponents from './ExtendedComponents.vue';
-import FormWorkflowExample from './FormWorkflowExample.vue';
 import {
   VButton, VInput, VSelect, VTextarea,
   VCheckbox, VFileUpload, VFormField, VAlert
@@ -9,7 +7,7 @@ import {
 
 type Template = { subject: string; title?: string; preheader?: string; html: string; text: string; urlVariables?: string[] };
 type Rendered = { subject: string; html: string; text: string };
-const tab = ref<'components' | 'extended' | 'workflow' | 'email'>('components');
+const tab = ref<'components' | 'email'>('components');
 const name = ref('Alex Morgan');
 const email = ref('alex@example.com');
 const role = ref('staff');
@@ -90,16 +88,14 @@ renderPreview();
       <div class="sb-brand"><span class="sb-mark">V</span><div><strong>Virexen UI</strong><small>Design system sandbox · Development only</small></div></div>
       <div class="sb-nav">
         <button :class="['sb-tab', { active: tab === 'components' }]" @click="tab = 'components'">Components</button>
-        <button :class="['sb-tab', { active: tab === 'extended' }]" @click="tab = 'extended'">Advanced components</button>
-        <button :class="['sb-tab', { active: tab === 'workflow' }]" @click="tab = 'workflow'">Form workflows</button>
         <button :class="['sb-tab', { active: tab === 'email' }]" @click="tab = 'email'; renderPreview()">Email playground</button>
       </div>
     </header>
     <main>
       <section class="sb-intro">
         <p class="eyebrow">@virexen-group/ui-theme</p>
-        <h1>{{ tab === 'components' ? 'Component gallery' : tab === 'extended' ? 'Advanced components' : tab === 'workflow' ? 'Form workflows' : 'Email playground' }}</h1>
-        <p class="muted">{{ tab === 'components' ? 'Preview real components imported from src.' : tab === 'extended' ? 'Header, account menu, searchable select, and file previews.' : tab === 'workflow' ? 'Step-by-step and all-on-one-page forms with completion tracking.' : 'Edit templates and data, then render through the real src/email.js on the local Vite server.' }}</p>
+        <h1>{{ tab === 'components' ? 'Component gallery' : 'Email playground' }}</h1>
+        <p class="muted">{{ tab === 'components' ? 'Preview real components imported from src. Try their states and interactions.' : 'Edit templates and data, then render through the real src/email.js on the local Vite server.' }}</p>
       </section>
       <template v-if="tab === 'components'">
         <div class="sb-grid">
@@ -136,7 +132,7 @@ renderPreview();
                 <VTextarea v-model="description" :id="field.id" :describedby="field.describedby" />
               </VFormField>
               <VCheckbox v-model="enabled" label="Enable notifications" />
-              <VFileUpload label="Upload a file" accept=".png,.jpg,.pdf" @change="files => selectedFiles = files.map(file => file.name)" />
+              <VFileUpload label="Upload a file" accept=".png,.jpg,.pdf" @change="(files: File[]) => selectedFiles = files.map((file: File) => file.name)" />
               <p v-if="selectedFiles.length" class="muted">Selected: {{ selectedFiles.join(', ') }}</p>
               <div class="sb-inline"><VButton type="submit" variant="primary">Save example form</VButton></div>
             </form>
@@ -147,8 +143,6 @@ renderPreview();
           </section>
         </div>
       </template>
-      <template v-else-if="tab === 'extended'"><ExtendedComponents /></template>
-      <template v-else-if="tab === 'workflow'"><FormWorkflowExample /></template>
       <template v-else>
         <div class="sb-email-grid">
           <section class="panel sb-card sb-editor">

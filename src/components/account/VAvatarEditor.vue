@@ -1,0 +1,1 @@
+<script setup lang="ts">import VImageUploader from '../forms/VImageUploader.vue';const emit=defineEmits<{file:[file:File]}>();</script><template><div class="vx-avatar-editor"><VImageUploader @file="emit('file',$event)"/></div></template>

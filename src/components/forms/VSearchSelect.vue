@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { computed, nextTick, ref, watch } from 'vue';
+import {getSmartOptions, type SmartDataSource} from '../../data/smart-options';
 export interface SearchOption { label: string; value: string; disabled?: boolean; description?: string }
-const props = withDefaults(defineProps<{ modelValue?: string | null; options: SearchOption[]; placeholder?: string; searchPlaceholder?: string; emptyText?: string; disabled?: boolean; loading?: boolean; id?: string; name?: string; remote?: boolean }>(), { placeholder: 'Select an option', searchPlaceholder: 'Search options…', emptyText: 'No matching options', remote: false });
+const props = withDefaults(defineProps<{ modelValue?: string | null; options?: SearchOption[]; dataSource?: SmartDataSource; country?: string; locale?: string; placeholder?: string; searchPlaceholder?: string; emptyText?: string; disabled?: boolean; loading?: boolean; id?: string; name?: string; remote?: boolean }>(), { placeholder: 'Select an option', searchPlaceholder: 'Search options…', emptyText: 'No matching options', remote: false });
 const emit = defineEmits<{ 'update:modelValue': [value: string | null]; search: [query: string] }>();
 const open = ref(false), query = ref(''), active = ref(0);
 const root = ref<HTMLElement | null>(null), searchInput = ref<HTMLInputElement | null>(null);
-const chosen = computed(() => props.options.find(o => o.value === props.modelValue));
-const filtered = computed(() => props.remote ? props.options : props.options.filter(o => `${o.label} ${o.description || ''}`.toLowerCase().includes(query.value.toLowerCase())));
+const resolvedOptions = computed<SearchOption[]>(() => props.dataSource ? getSmartOptions(props.dataSource, props.country, props.locale) : (props.options ?? []));
+const chosen = computed(() => resolvedOptions.value.find(o => o.value === props.modelValue));
+const filtered = computed(() => props.remote ? resolvedOptions.value : resolvedOptions.value.filter(o => `${o.label} ${o.description || ''}`.toLowerCase().includes(query.value.toLowerCase())));
 watch(query, v => { active.value = Math.max(0, filtered.value.findIndex(o => !o.disabled)); emit('search', v); });
 watch(filtered, () => { active.value = Math.max(0, filtered.value.findIndex(o => !o.disabled)); });
 async function show() { if (props.disabled) return; open.value = true; query.value = ''; await nextTick(); searchInput.value?.focus(); }

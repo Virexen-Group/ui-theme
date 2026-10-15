@@ -1,0 +1,1 @@
+<script setup lang="ts">defineProps<{title:string;description?:string;required?:boolean}>();</script><template><section class="vx-form-section"><header><h2>{{title}} <span v-if="required" aria-label="required">*</span></h2><p v-if="description">{{description}}</p></header><div class="vx-form-section__content"><slot/></div></section></template>

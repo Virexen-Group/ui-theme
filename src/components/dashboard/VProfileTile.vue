@@ -1,0 +1,2 @@
+<script setup lang="ts">defineProps<{name:string;subtitle?:string;avatarUrl?:string;initials?:string}>();</script>
+<template><article class="vx-dash-tile vx-dash-profile"><img v-if="avatarUrl" :src="avatarUrl" :alt="name" class="vx-dash-avatar"/><span v-else class="vx-dash-avatar vx-dash-avatar--fallback">{{initials||name.slice(0,2).toUpperCase()}}</span><div><div class="vx-dash-value vx-dash-profile-name">{{name}}</div><div class="vx-dash-sub">{{subtitle}}</div><slot/></div></article></template>

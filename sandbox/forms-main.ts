@@ -1,0 +1,1 @@
+import {createApp} from 'vue';import FormsGallery from './FormsGallery.vue';import '../src/theme.css';import '../src/styles/components.css';import '../src/styles/roadmap.css';import '../src/styles/master.css';import '../src/styles/theme-modes.css';import '../src/styles/data-polish.css';import './sandbox.css';createApp(FormsGallery).mount('#app');

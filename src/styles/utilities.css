@@ -1,0 +1,2 @@
+/* Opt-in utility entry point (layout.css includes core classes; this adds helper utilities) */
+.vx-rounded{border-radius:12px}.vx-shadow-sm{box-shadow:0 2px 8px rgba(0,0,0,.07)}.vx-text-brand{color:var(--vx-brand-primary)}.vx-bg-brand{background:var(--vx-brand-primary);color:var(--vx-brand-on-primary)}

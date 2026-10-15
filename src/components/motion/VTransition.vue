@@ -1,0 +1,1 @@
+<script setup lang="ts">import {computed} from 'vue';const props=withDefaults(defineProps<{name?:'fade'|'slide'|'scale';duration?:number}>(),{name:'fade',duration:200});const style=computed(()=>({'--vx-transition-duration':`${props.duration}ms`}));</script><template><Transition :name="'vx-'+name"><div :style="style"><slot/></div></Transition></template>

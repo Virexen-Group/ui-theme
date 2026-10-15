@@ -1,0 +1,1 @@
+<script setup lang="ts">withDefaults(defineProps<{as?:'h1'|'h2'|'h3'|'h4'|'p'|'span';scale?:'display'|'h1'|'h2'|'h3'|'body'|'small'|'caption';muted?:boolean}>(),{as:'p',scale:'body',muted:false})</script><template><component :is="as" :class="['vx-type','vx-type--'+scale,{'vx-type--muted':muted}]"><slot/></component></template>

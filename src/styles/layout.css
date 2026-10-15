@@ -1,0 +1,33 @@
+/* Virexen Layout System — opt-in via layout.css */
+:root{--vx-container-max:1440px;--vx-layout-gutter:24px;--vx-brand-primary:#159f96;--vx-brand-primary-hover:#10887f;--vx-brand-on-primary:#fff;--vx-brand-surface:#e9f8f7;--vx-brand-ink:#133f3e}
+.vx-container{width:100%;margin-inline:auto;padding-inline:var(--vx-layout-gutter);box-sizing:border-box}.vx-container-sm{max-width:640px}.vx-container-md{max-width:880px}.vx-container-lg{max-width:1120px}.vx-container-xl{max-width:var(--vx-container-max)}.vx-container-full,.vx-container-fluid{max-width:none}
+.vx-row{display:flex;flex-wrap:wrap;gap:var(--vx-row-gap,16px);--vx-row-gap:16px;min-width:0}.vx-row>.vx-col{min-width:0;box-sizing:border-box;flex:0 0 calc((100% + var(--vx-row-gap))/12 * var(--vx-col-span,12) - var(--vx-row-gap));max-width:100%}.vx-align-start{align-items:flex-start}.vx-align-center{align-items:center}.vx-align-end{align-items:flex-end}.vx-align-stretch{align-items:stretch}
+.vx-flex{display:flex;min-width:0}.vx-spacer{flex:1 1 auto}.vx-divider{border:0;border-top:1px solid var(--vx-border, #dce7e7);width:100%;margin:0}.vx-divider-vertical{border-top:0;border-left:1px solid var(--vx-border,#dce7e7);height:auto;width:0;align-self:stretch}.vx-aspect-ratio{position:relative;width:100%;overflow:hidden}.vx-aspect-ratio>*{max-width:100%;max-height:100%}.vx-aspect-ratio>img,.vx-aspect-ratio>video{width:100%;height:100%;object-fit:cover}.vx-scroll-area{overflow:auto;overscroll-behavior:contain}.vx-section-sm{padding-block:16px}.vx-section-md{padding-block:32px}.vx-section-lg{padding-block:64px}
+.vx-brand-logo{display:inline-block;object-fit:contain;vertical-align:middle}.vx-brand-logo-fallback{display:inline-flex;background:var(--vx-brand-primary);color:white;align-items:center;justify-content:center;font-weight:800;border-radius:22%;font-size:20px}
+.vx-col-1{--vx-col-span:1}
+.vx-col-2{--vx-col-span:2}
+.vx-col-3{--vx-col-span:3}
+.vx-col-4{--vx-col-span:4}
+.vx-col-5{--vx-col-span:5}
+.vx-col-6{--vx-col-span:6}
+.vx-col-7{--vx-col-span:7}
+.vx-col-8{--vx-col-span:8}
+.vx-col-9{--vx-col-span:9}
+.vx-col-10{--vx-col-span:10}
+.vx-col-11{--vx-col-span:11}
+.vx-col-12{--vx-col-span:12}
+@media(min-width:576px){.vx-col-sm-1{--vx-col-span:1}.vx-col-sm-2{--vx-col-span:2}.vx-col-sm-3{--vx-col-span:3}.vx-col-sm-4{--vx-col-span:4}.vx-col-sm-5{--vx-col-span:5}.vx-col-sm-6{--vx-col-span:6}.vx-col-sm-7{--vx-col-span:7}.vx-col-sm-8{--vx-col-span:8}.vx-col-sm-9{--vx-col-span:9}.vx-col-sm-10{--vx-col-span:10}.vx-col-sm-11{--vx-col-span:11}.vx-col-sm-12{--vx-col-span:12}}
+@media(min-width:768px){.vx-col-md-1{--vx-col-span:1}.vx-col-md-2{--vx-col-span:2}.vx-col-md-3{--vx-col-span:3}.vx-col-md-4{--vx-col-span:4}.vx-col-md-5{--vx-col-span:5}.vx-col-md-6{--vx-col-span:6}.vx-col-md-7{--vx-col-span:7}.vx-col-md-8{--vx-col-span:8}.vx-col-md-9{--vx-col-span:9}.vx-col-md-10{--vx-col-span:10}.vx-col-md-11{--vx-col-span:11}.vx-col-md-12{--vx-col-span:12}}
+@media(min-width:1024px){.vx-col-lg-1{--vx-col-span:1}.vx-col-lg-2{--vx-col-span:2}.vx-col-lg-3{--vx-col-span:3}.vx-col-lg-4{--vx-col-span:4}.vx-col-lg-5{--vx-col-span:5}.vx-col-lg-6{--vx-col-span:6}.vx-col-lg-7{--vx-col-span:7}.vx-col-lg-8{--vx-col-span:8}.vx-col-lg-9{--vx-col-span:9}.vx-col-lg-10{--vx-col-span:10}.vx-col-lg-11{--vx-col-span:11}.vx-col-lg-12{--vx-col-span:12}}
+@media(min-width:1280px){.vx-col-xl-1{--vx-col-span:1}.vx-col-xl-2{--vx-col-span:2}.vx-col-xl-3{--vx-col-span:3}.vx-col-xl-4{--vx-col-span:4}.vx-col-xl-5{--vx-col-span:5}.vx-col-xl-6{--vx-col-span:6}.vx-col-xl-7{--vx-col-span:7}.vx-col-xl-8{--vx-col-span:8}.vx-col-xl-9{--vx-col-span:9}.vx-col-xl-10{--vx-col-span:10}.vx-col-xl-11{--vx-col-span:11}.vx-col-xl-12{--vx-col-span:12}}
+.vx-offset-0{margin-left:calc(100% * 0/12)}.vx-offset-1{margin-left:calc(100% * 1/12)}.vx-offset-2{margin-left:calc(100% * 2/12)}.vx-offset-3{margin-left:calc(100% * 3/12)}.vx-offset-4{margin-left:calc(100% * 4/12)}.vx-offset-5{margin-left:calc(100% * 5/12)}.vx-offset-6{margin-left:calc(100% * 6/12)}.vx-offset-7{margin-left:calc(100% * 7/12)}.vx-offset-8{margin-left:calc(100% * 8/12)}.vx-offset-9{margin-left:calc(100% * 9/12)}.vx-offset-10{margin-left:calc(100% * 10/12)}.vx-offset-11{margin-left:calc(100% * 11/12)}
+.vx-p-0{padding:0px}.vx-px-0{padding-inline:0px}.vx-py-0{padding-block:0px}.vx-m-0{margin:0px}.vx-mt-0{margin-top:0px}.vx-mb-0{margin-bottom:0px}.vx-gap-0{gap:0px}
+.vx-p-1{padding:4px}.vx-px-1{padding-inline:4px}.vx-py-1{padding-block:4px}.vx-m-1{margin:4px}.vx-mt-1{margin-top:4px}.vx-mb-1{margin-bottom:4px}.vx-gap-1{gap:4px}
+.vx-p-2{padding:8px}.vx-px-2{padding-inline:8px}.vx-py-2{padding-block:8px}.vx-m-2{margin:8px}.vx-mt-2{margin-top:8px}.vx-mb-2{margin-bottom:8px}.vx-gap-2{gap:8px}
+.vx-p-3{padding:12px}.vx-px-3{padding-inline:12px}.vx-py-3{padding-block:12px}.vx-m-3{margin:12px}.vx-mt-3{margin-top:12px}.vx-mb-3{margin-bottom:12px}.vx-gap-3{gap:12px}
+.vx-p-4{padding:16px}.vx-px-4{padding-inline:16px}.vx-py-4{padding-block:16px}.vx-m-4{margin:16px}.vx-mt-4{margin-top:16px}.vx-mb-4{margin-bottom:16px}.vx-gap-4{gap:16px}
+.vx-p-5{padding:20px}.vx-px-5{padding-inline:20px}.vx-py-5{padding-block:20px}.vx-m-5{margin:20px}.vx-mt-5{margin-top:20px}.vx-mb-5{margin-bottom:20px}.vx-gap-5{gap:20px}
+.vx-p-6{padding:24px}.vx-px-6{padding-inline:24px}.vx-py-6{padding-block:24px}.vx-m-6{margin:24px}.vx-mt-6{margin-top:24px}.vx-mb-6{margin-bottom:24px}.vx-gap-6{gap:24px}
+.vx-d-none{display:none!important}.vx-d-flex{display:flex!important}.vx-d-grid{display:grid!important}.vx-w-full{width:100%}.vx-mx-auto{margin-inline:auto}.vx-justify-between{justify-content:space-between}.vx-justify-center{justify-content:center}.vx-align-center{align-items:center}.vx-text-center{text-align:center}.vx-text-end{text-align:end}.vx-overflow-hidden{overflow:hidden}.vx-overflow-auto{overflow:auto}.vx-sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(min-width:768px){.vx-d-md-flex{display:flex!important}.vx-d-md-none{display:none!important}}@media(min-width:1024px){.vx-d-lg-none{display:none!important}.vx-d-lg-flex{display:flex!important}}
+@media(max-width:575px){:root{--vx-layout-gutter:16px}}

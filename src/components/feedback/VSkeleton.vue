@@ -1,0 +1,1 @@
+<script setup lang="ts">withDefaults(defineProps<{height?:string;width?:string}>(),{height:'18px',width:'100%'});</script><template><div aria-hidden="true" class="vx-skeleton" :style="{height,width}"/></template>

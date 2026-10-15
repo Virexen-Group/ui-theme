@@ -1,0 +1,9 @@
+import { createApp } from 'vue';
+import DocsHome from './DocsHome.vue';
+import '../src/theme.css';
+import '../src/styles/components.css';
+import '../src/styles/packs-notifications.css';
+import '../src/styles/master.css';
+import '../src/styles/theme-modes.css';
+import './sandbox.css';
+createApp(DocsHome).mount('#app');

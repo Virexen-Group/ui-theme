@@ -1,0 +1,4 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
+const read=p=>fs.readFileSync(new URL('../'+p,import.meta.url),'utf8');
+test('index uses independent docs entry rather than old HomeCatalog',()=>{assert.match(read('sandbox/index.html'),/docs-entry\.ts/);assert.doesNotMatch(read('sandbox/index.html'),/home-main\.ts/);assert.match(read('sandbox/docs-entry.ts'),/createApp\(DocsHome\)/);assert.doesNotMatch(read('sandbox/docs-entry.ts'),/HomeCatalog/)});
+test('all ten brands are in official catalogue and foundations shows a gallery',()=>{const data=read('src/data/virexen-brand.ts');for(const b of ['Virexen','Virexen-Pay','Virexen-Workspace','Virexen-Identity','My-Virexen','Virexen-Cloud','Virexen-CMS','Virexen-Support','Virexen-Developer','Marlo'])assert.match(data,new RegExp("'"+b+"':"));assert.match(read('sandbox/DocsCategory.vue'),/BrandGallery/);assert.match(read('sandbox/BrandGallery.vue'),/VBrandLogo/)});

@@ -1,0 +1,1 @@
+<script setup lang="ts">withDefaults(defineProps<{direction?:'row'|'column';gap?:number;wrap?:boolean}>(),{direction:'column',gap:12});</script><template><div class="vx-stack" :style="{flexDirection:direction,gap:gap+'px',flexWrap:wrap?'wrap':'nowrap'}"><slot/></div></template>

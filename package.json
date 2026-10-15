@@ -1,7 +1,9 @@
 {
   "name": "@virexen-group/ui-theme",
-  "version": "0.2.0",
-  "description": "Shared Virexen design system, themes, UI components, typography, fonts and email utilities for all Virexen platforms",
+  "version": "0.6.4",
+  "private": false,
+  "type": "module",
+  "description": "Shared Virexen Master UI with typed manifests, appearance presets and centred Identity forms",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Virexen-Group/ui-theme.git"
@@ -10,11 +12,14 @@
     "registry": "https://npm.pkg.github.com",
     "access": "restricted"
   },
-  "type": "module",
   "exports": {
     "./theme.css": "./dist/theme.css",
     "./components.css": "./dist/components.css",
-    "./package.json": "./package.json",
+    "./workflow.css": "./dist/workflow.css",
+    "./commerce.css": "./dist/commerce.css",
+    "./sidebar.css": "./dist/sidebar.css",
+    "./packs-notifications.css": "./dist/packs-notifications.css",
+    "./master.css": "./dist/master.css",
     "./fonts/*": "./dist/fonts/*",
     "./email": {
       "types": "./dist/email.d.ts",
@@ -23,6 +28,440 @@
     "./vue": {
       "types": "./dist/vue/index.d.ts",
       "import": "./dist/vue/index.js"
+    },
+    "./package.json": "./package.json",
+    "./theme-modes.css": "./dist/theme-modes.css",
+    "./identity.css": "./dist/identity.css",
+    "./roadmap.css": "./dist/roadmap.css",
+    "./data-polish.css": "./dist/data-polish.css",
+    "./vue/button": {
+      "types": "./dist/vue/entries/button.d.ts",
+      "import": "./dist/vue/entries/button.js"
+    },
+    "./vue/alert": {
+      "types": "./dist/vue/entries/alert.d.ts",
+      "import": "./dist/vue/entries/alert.js"
+    },
+    "./vue/form-field": {
+      "types": "./dist/vue/entries/form-field.d.ts",
+      "import": "./dist/vue/entries/form-field.js"
+    },
+    "./vue/input": {
+      "types": "./dist/vue/entries/input.d.ts",
+      "import": "./dist/vue/entries/input.js"
+    },
+    "./vue/select": {
+      "types": "./dist/vue/entries/select.d.ts",
+      "import": "./dist/vue/entries/select.js"
+    },
+    "./vue/textarea": {
+      "types": "./dist/vue/entries/textarea.d.ts",
+      "import": "./dist/vue/entries/textarea.js"
+    },
+    "./vue/checkbox": {
+      "types": "./dist/vue/entries/checkbox.d.ts",
+      "import": "./dist/vue/entries/checkbox.js"
+    },
+    "./vue/file-upload": {
+      "types": "./dist/vue/entries/file-upload.d.ts",
+      "import": "./dist/vue/entries/file-upload.js"
+    },
+    "./vue/search-select": {
+      "types": "./dist/vue/entries/search-select.d.ts",
+      "import": "./dist/vue/entries/search-select.js"
+    },
+    "./vue/user-menu": {
+      "types": "./dist/vue/entries/user-menu.d.ts",
+      "import": "./dist/vue/entries/user-menu.js"
+    },
+    "./vue/app-header": {
+      "types": "./dist/vue/entries/app-header.d.ts",
+      "import": "./dist/vue/entries/app-header.js"
+    },
+    "./vue/form-workflow": {
+      "types": "./dist/vue/entries/form-workflow.d.ts",
+      "import": "./dist/vue/entries/form-workflow.js"
+    },
+    "./vue/card": {
+      "types": "./dist/vue/entries/card.d.ts",
+      "import": "./dist/vue/entries/card.js"
+    },
+    "./vue/page-header": {
+      "types": "./dist/vue/entries/page-header.d.ts",
+      "import": "./dist/vue/entries/page-header.js"
+    },
+    "./vue/stack": {
+      "types": "./dist/vue/entries/stack.d.ts",
+      "import": "./dist/vue/entries/stack.js"
+    },
+    "./vue/empty-state": {
+      "types": "./dist/vue/entries/empty-state.d.ts",
+      "import": "./dist/vue/entries/empty-state.js"
+    },
+    "./vue/badge": {
+      "types": "./dist/vue/entries/badge.d.ts",
+      "import": "./dist/vue/entries/badge.js"
+    },
+    "./vue/progress": {
+      "types": "./dist/vue/entries/progress.d.ts",
+      "import": "./dist/vue/entries/progress.js"
+    },
+    "./vue/skeleton": {
+      "types": "./dist/vue/entries/skeleton.d.ts",
+      "import": "./dist/vue/entries/skeleton.js"
+    },
+    "./vue/switch": {
+      "types": "./dist/vue/entries/switch.d.ts",
+      "import": "./dist/vue/entries/switch.js"
+    },
+    "./vue/date-picker": {
+      "types": "./dist/vue/entries/date-picker.d.ts",
+      "import": "./dist/vue/entries/date-picker.js"
+    },
+    "./vue/date-range": {
+      "types": "./dist/vue/entries/date-range.d.ts",
+      "import": "./dist/vue/entries/date-range.js"
+    },
+    "./vue/multi-select": {
+      "types": "./dist/vue/entries/multi-select.d.ts",
+      "import": "./dist/vue/entries/multi-select.js"
+    },
+    "./vue/currency-input": {
+      "types": "./dist/vue/entries/currency-input.d.ts",
+      "import": "./dist/vue/entries/currency-input.js"
+    },
+    "./vue/form-section": {
+      "types": "./dist/vue/entries/form-section.d.ts",
+      "import": "./dist/vue/entries/form-section.js"
+    },
+    "./vue/tabs": {
+      "types": "./dist/vue/entries/tabs.d.ts",
+      "import": "./dist/vue/entries/tabs.js"
+    },
+    "./vue/breadcrumbs": {
+      "types": "./dist/vue/entries/breadcrumbs.d.ts",
+      "import": "./dist/vue/entries/breadcrumbs.js"
+    },
+    "./vue/pagination": {
+      "types": "./dist/vue/entries/pagination.d.ts",
+      "import": "./dist/vue/entries/pagination.js"
+    },
+    "./vue/drawer": {
+      "types": "./dist/vue/entries/drawer.d.ts",
+      "import": "./dist/vue/entries/drawer.js"
+    },
+    "./vue/modal": {
+      "types": "./dist/vue/entries/modal.d.ts",
+      "import": "./dist/vue/entries/modal.js"
+    },
+    "./vue/tooltip": {
+      "types": "./dist/vue/entries/tooltip.d.ts",
+      "import": "./dist/vue/entries/tooltip.js"
+    },
+    "./vue/data-table": {
+      "types": "./dist/vue/entries/data-table.d.ts",
+      "import": "./dist/vue/entries/data-table.js"
+    },
+    "./vue/stat-card": {
+      "types": "./dist/vue/entries/stat-card.d.ts",
+      "import": "./dist/vue/entries/stat-card.js"
+    },
+    "./vue/command-palette": {
+      "types": "./dist/vue/entries/command-palette.d.ts",
+      "import": "./dist/vue/entries/command-palette.js"
+    },
+    "./vue/icon": {
+      "types": "./dist/vue/entries/icon.d.ts",
+      "import": "./dist/vue/entries/icon.js"
+    },
+    "./vue/sidebar": {
+      "types": "./dist/vue/entries/sidebar.d.ts",
+      "import": "./dist/vue/entries/sidebar.js"
+    },
+    "./vue/app-switcher": {
+      "types": "./dist/vue/entries/app-switcher.d.ts",
+      "import": "./dist/vue/entries/app-switcher.js"
+    },
+    "./vue/notification": {
+      "types": "./dist/vue/entries/notification.d.ts",
+      "import": "./dist/vue/entries/notification.js"
+    },
+    "./vue/toast-provider": {
+      "types": "./dist/vue/entries/toast-provider.d.ts",
+      "import": "./dist/vue/entries/toast-provider.js"
+    },
+    "./vue/confirm-dialog": {
+      "types": "./dist/vue/entries/confirm-dialog.d.ts",
+      "import": "./dist/vue/entries/confirm-dialog.js"
+    },
+    "./vue/session-select-card": {
+      "types": "./dist/vue/entries/session-select-card.d.ts",
+      "import": "./dist/vue/entries/session-select-card.js"
+    },
+    "./vue/currency-amount": {
+      "types": "./dist/vue/entries/currency-amount.d.ts",
+      "import": "./dist/vue/entries/currency-amount.js"
+    },
+    "./vue/price-breakdown": {
+      "types": "./dist/vue/entries/price-breakdown.d.ts",
+      "import": "./dist/vue/entries/price-breakdown.js"
+    },
+    "./vue/theme-toggle": {
+      "types": "./dist/vue/entries/theme-toggle.d.ts",
+      "import": "./dist/vue/entries/theme-toggle.js"
+    },
+    "./vue/identity-sign-in": {
+      "types": "./dist/vue/entries/identity-sign-in.d.ts",
+      "import": "./dist/vue/entries/identity-sign-in.js"
+    },
+    "./vue/typography": {
+      "types": "./dist/vue/entries/typography.d.ts",
+      "import": "./dist/vue/entries/typography.js"
+    },
+    "./vue/grid": {
+      "types": "./dist/vue/entries/grid.d.ts",
+      "import": "./dist/vue/entries/grid.js"
+    },
+    "./vue/time-picker": {
+      "types": "./dist/vue/entries/time-picker.d.ts",
+      "import": "./dist/vue/entries/time-picker.js"
+    },
+    "./vue/date-time-picker": {
+      "types": "./dist/vue/entries/date-time-picker.d.ts",
+      "import": "./dist/vue/entries/date-time-picker.js"
+    },
+    "./vue/masked-input": {
+      "types": "./dist/vue/entries/masked-input.d.ts",
+      "import": "./dist/vue/entries/masked-input.js"
+    },
+    "./vue/rich-text-editor": {
+      "types": "./dist/vue/entries/rich-text-editor.d.ts",
+      "import": "./dist/vue/entries/rich-text-editor.js"
+    },
+    "./vue/file-manager": {
+      "types": "./dist/vue/entries/file-manager.d.ts",
+      "import": "./dist/vue/entries/file-manager.js"
+    },
+    "./vue/bottom-navigation": {
+      "types": "./dist/vue/entries/bottom-navigation.d.ts",
+      "import": "./dist/vue/entries/bottom-navigation.js"
+    },
+    "./vue/permission-menu": {
+      "types": "./dist/vue/entries/permission-menu.d.ts",
+      "import": "./dist/vue/entries/permission-menu.js"
+    },
+    "./vue/chart": {
+      "types": "./dist/vue/entries/chart.d.ts",
+      "import": "./dist/vue/entries/chart.js"
+    },
+    "./vue/advanced-table": {
+      "types": "./dist/vue/entries/advanced-table.d.ts",
+      "import": "./dist/vue/entries/advanced-table.js"
+    },
+    "./vue/status-state": {
+      "types": "./dist/vue/entries/status-state.d.ts",
+      "import": "./dist/vue/entries/status-state.js"
+    },
+    "./vue/notification-centre": {
+      "types": "./dist/vue/entries/notification-centre.d.ts",
+      "import": "./dist/vue/entries/notification-centre.js"
+    },
+    "./vue/product-select-card": {
+      "types": "./dist/vue/entries/product-select-card.d.ts",
+      "import": "./dist/vue/entries/product-select-card.js"
+    },
+    "./vue/order-summary": {
+      "types": "./dist/vue/entries/order-summary.d.ts",
+      "import": "./dist/vue/entries/order-summary.js"
+    },
+    "./vue/payment-method": {
+      "types": "./dist/vue/entries/payment-method.d.ts",
+      "import": "./dist/vue/entries/payment-method.js"
+    },
+    "./vue/invoice-preview": {
+      "types": "./dist/vue/entries/invoice-preview.d.ts",
+      "import": "./dist/vue/entries/invoice-preview.js"
+    },
+    "./vue/subscription-pricing": {
+      "types": "./dist/vue/entries/subscription-pricing.d.ts",
+      "import": "./dist/vue/entries/subscription-pricing.js"
+    },
+    "./vue/dashboard-shell": {
+      "types": "./dist/vue/entries/dashboard-shell.d.ts",
+      "import": "./dist/vue/entries/dashboard-shell.js"
+    },
+    "./vue/profile-view": {
+      "types": "./dist/vue/entries/profile-view.d.ts",
+      "import": "./dist/vue/entries/profile-view.js"
+    },
+    "./vue/responsive-card-grid": {
+      "types": "./dist/vue/entries/responsive-card-grid.d.ts",
+      "import": "./dist/vue/entries/responsive-card-grid.js"
+    },
+    "./vue/calendar": {
+      "types": "./dist/vue/entries/calendar.d.ts",
+      "import": "./dist/vue/entries/calendar.js"
+    },
+    "./vue/scheduler": {
+      "types": "./dist/vue/entries/scheduler.d.ts",
+      "import": "./dist/vue/entries/scheduler.js"
+    },
+    "./vue/phone-input": {
+      "types": "./dist/vue/entries/phone-input.d.ts",
+      "import": "./dist/vue/entries/phone-input.js"
+    },
+    "./vue/country-select": {
+      "types": "./dist/vue/entries/country-select.d.ts",
+      "import": "./dist/vue/entries/country-select.js"
+    },
+    "./vue/timezone-select": {
+      "types": "./dist/vue/entries/timezone-select.d.ts",
+      "import": "./dist/vue/entries/timezone-select.js"
+    },
+    "./vue/language-select": {
+      "types": "./dist/vue/entries/language-select.d.ts",
+      "import": "./dist/vue/entries/language-select.js"
+    },
+    "./vue/region-select": {
+      "types": "./dist/vue/entries/region-select.d.ts",
+      "import": "./dist/vue/entries/region-select.js"
+    },
+    "./vue/postal-code-input": {
+      "types": "./dist/vue/entries/postal-code-input.d.ts",
+      "import": "./dist/vue/entries/postal-code-input.js"
+    },
+    "./vue/address-input": {
+      "types": "./dist/vue/entries/address-input.d.ts",
+      "import": "./dist/vue/entries/address-input.js"
+    },
+    "./vue/google-address-autocomplete": {
+      "types": "./dist/vue/entries/google-address-autocomplete.d.ts",
+      "import": "./dist/vue/entries/google-address-autocomplete.js"
+    },
+    "./vue/name-input": {
+      "types": "./dist/vue/entries/name-input.d.ts",
+      "import": "./dist/vue/entries/name-input.js"
+    },
+    "./vue/validated-date": {
+      "types": "./dist/vue/entries/validated-date.d.ts",
+      "import": "./dist/vue/entries/validated-date.js"
+    },
+    "./vue/date-of-birth": {
+      "types": "./dist/vue/entries/date-of-birth.d.ts",
+      "import": "./dist/vue/entries/date-of-birth.js"
+    },
+    "./vue/email-input": {
+      "types": "./dist/vue/entries/email-input.d.ts",
+      "import": "./dist/vue/entries/email-input.js"
+    },
+    "./vue/validated-input": {
+      "types": "./dist/vue/entries/validated-input.d.ts",
+      "import": "./dist/vue/entries/validated-input.js"
+    },
+    "./dashboard.css": "./dist/dashboard.css",
+    "./motion.css": "./dist/motion.css",
+    "./vue/data-grid": {
+      "types": "./dist/vue/entries/data-grid.d.ts",
+      "import": "./dist/vue/entries/data-grid.js"
+    },
+    "./vue/app-shell": {
+      "types": "./dist/vue/entries/app-shell.d.ts",
+      "import": "./dist/vue/entries/app-shell.js"
+    },
+    "./vue/settings-layout": {
+      "types": "./dist/vue/entries/settings-layout.d.ts",
+      "import": "./dist/vue/entries/settings-layout.js"
+    },
+    "./vue/profile-layout": {
+      "types": "./dist/vue/entries/profile-layout.d.ts",
+      "import": "./dist/vue/entries/profile-layout.js"
+    },
+    "./vue/wizard-layout": {
+      "types": "./dist/vue/entries/wizard-layout.d.ts",
+      "import": "./dist/vue/entries/wizard-layout.js"
+    },
+    "./vue/detail-drawer": {
+      "types": "./dist/vue/entries/detail-drawer.d.ts",
+      "import": "./dist/vue/entries/detail-drawer.js"
+    },
+    "./vue/image-uploader": {
+      "types": "./dist/vue/entries/image-uploader.d.ts",
+      "import": "./dist/vue/entries/image-uploader.js"
+    },
+    "./vue/document-viewer": {
+      "types": "./dist/vue/entries/document-viewer.d.ts",
+      "import": "./dist/vue/entries/document-viewer.js"
+    },
+    "./vue/media-gallery": {
+      "types": "./dist/vue/entries/media-gallery.d.ts",
+      "import": "./dist/vue/entries/media-gallery.js"
+    },
+    "./vue/avatar-editor": {
+      "types": "./dist/vue/entries/avatar-editor.d.ts",
+      "import": "./dist/vue/entries/avatar-editor.js"
+    },
+    "./vue/upload-progress": {
+      "types": "./dist/vue/entries/upload-progress.d.ts",
+      "import": "./dist/vue/entries/upload-progress.js"
+    },
+    "./vue/unsaved-changes": {
+      "types": "./dist/vue/entries/unsaved-changes.d.ts",
+      "import": "./dist/vue/entries/unsaved-changes.js"
+    },
+    "./vue/feedback-banner": {
+      "types": "./dist/vue/entries/feedback-banner.d.ts",
+      "import": "./dist/vue/entries/feedback-banner.js"
+    },
+    "./vue/container": {
+      "types": "./dist/vue/entries/container.d.ts",
+      "import": "./dist/vue/entries/container.js"
+    },
+    "./vue/row": {
+      "types": "./dist/vue/entries/row.d.ts",
+      "import": "./dist/vue/entries/row.js"
+    },
+    "./vue/col": {
+      "types": "./dist/vue/entries/col.d.ts",
+      "import": "./dist/vue/entries/col.js"
+    },
+    "./vue/flex": {
+      "types": "./dist/vue/entries/flex.d.ts",
+      "import": "./dist/vue/entries/flex.js"
+    },
+    "./vue/spacer": {
+      "types": "./dist/vue/entries/spacer.d.ts",
+      "import": "./dist/vue/entries/spacer.js"
+    },
+    "./vue/divider": {
+      "types": "./dist/vue/entries/divider.d.ts",
+      "import": "./dist/vue/entries/divider.js"
+    },
+    "./vue/aspect-ratio": {
+      "types": "./dist/vue/entries/aspect-ratio.d.ts",
+      "import": "./dist/vue/entries/aspect-ratio.js"
+    },
+    "./vue/scroll-area": {
+      "types": "./dist/vue/entries/scroll-area.d.ts",
+      "import": "./dist/vue/entries/scroll-area.js"
+    },
+    "./vue/section": {
+      "types": "./dist/vue/entries/section.d.ts",
+      "import": "./dist/vue/entries/section.js"
+    },
+    "./vue/brand-logo": {
+      "types": "./dist/vue/entries/brand-logo.d.ts",
+      "import": "./dist/vue/entries/brand-logo.js"
+    },
+    "./layout.css": "./dist/layout.css",
+    "./utilities.css": "./dist/utilities.css",
+    "./brand.css": "./dist/brand.css",
+    "./vue/h-stack": {
+      "types": "./dist/vue/entries/h-stack.d.ts",
+      "import": "./dist/vue/entries/h-stack.js"
+    },
+    "./vue/floating-popover": {
+      "types": "./dist/vue/entries/floating-popover.d.ts",
+      "import": "./dist/vue/entries/floating-popover.js"
     }
   },
   "files": [
@@ -33,11 +472,19 @@
     "build:assets": "node scripts/build-assets.mjs",
     "build:components": "vite build",
     "build": "pnpm clean && pnpm build:assets && pnpm build:components",
-    "lint": "stylelint 'src/**/*.css'",
     "typecheck": "vue-tsc --noEmit -p tsconfig.components.json",
-    "prepublishOnly": "pnpm build",
     "test": "node --test tests/*.test.js",
-    "dev:sandbox": "vite --config vite.sandbox.config.ts"
+    "dev:sandbox": "vite --config vite.sandbox.config.ts",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test",
+    "test:all": "pnpm typecheck && pnpm test && pnpm test:unit && pnpm test:e2e"
+  },
+  "dependencies": {
+    "sanitize-html": "^2.18.0",
+    "@lucide/vue": "^1.0.0",
+    "libphonenumber-js": "^1.11.0",
+    "@floating-ui/vue": "^1.1.9",
+    "culori": "^4.0.2"
   },
   "peerDependencies": {
     "vue": "^3.5.0"
@@ -47,17 +494,18 @@
       "optional": true
     }
   },
-  "dependencies": {
-    "sanitize-html": "^2.18.0"
-  },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.10",
-    "stylelint": "^17.16.0",
-    "typescript": "^5.9.3",
+    "typescript": "~5.9.3",
     "vite": "^8.3.4",
     "vite-plugin-dts": "^5.1.2",
-    "vue": "^3.5.44",
-    "vue-tsc": "^3.3.13"
+    "vue": "^3.5.0",
+    "vue-tsc": "^3.3.13",
+    "@types/node": "^22.0.0",
+    "@playwright/test": "^1.56.1",
+    "vitest": "^3.2.4",
+    "@vue/test-utils": "^2.4.6",
+    "jsdom": "^26.1.0"
   },
-  "packageManager": "pnpm@10.28.2+sha512.41872f037ad22f7348e3b1debbaf7e867cfd448f2726d9cf74c08f19507c31d2c8e7a11525b983febc2df640b5438dee6023ebb1f84ed43cc2d654d2bc326264"
+  "packageManager": "pnpm@10.28.2"
 }

@@ -1,0 +1,1 @@
+import {createApp} from 'vue';import ToolkitDemos from './ToolkitDemos.vue';import '../src/theme.css';import '../src/styles/components.css';import '../src/styles/dashboard.css';import '../src/styles/motion.css';import '../src/styles/master.css';import './sandbox.css';createApp(ToolkitDemos).mount('#app');

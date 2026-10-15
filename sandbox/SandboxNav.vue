@@ -1,0 +1,3 @@
+<script setup lang="ts">import {catalogCategories} from './catalog-categories';</script>
+<template><nav class="vx-sandbox-nav" aria-label="Sandbox component categories"><a href="/">Home</a><a v-for="item in catalogCategories" :key="item.id" :href="item.url">{{item.title}}</a></nav></template>
+<style scoped>.vx-sandbox-nav{display:flex;gap:8px;flex-wrap:wrap;padding:12px clamp(15px,3vw,35px);background:#fff;border-bottom:1px solid #e1e8f0;position:relative;z-index:1}.vx-sandbox-nav a{color:#193b9f;font:600 12px Manrope,system-ui,sans-serif;text-decoration:none;border:1px solid #e1e8f0;border-radius:8px;padding:7px 10px}.vx-sandbox-nav a:hover,.vx-sandbox-nav a:focus-visible{background:#eef2ff}</style>

@@ -1,0 +1,2 @@
+<script setup lang="ts">defineProps<{title:string;description?:string;disabled?:boolean}>();const emit=defineEmits<{click:[]}>();</script>
+<template><button type="button" class="vx-dash-tile vx-dash-action" :disabled="disabled" @click="emit('click')"><span class="vx-dash-label"><slot name="icon"/> {{title}}</span><span v-if="description" class="vx-dash-sub">{{description}}</span><slot/></button></template>

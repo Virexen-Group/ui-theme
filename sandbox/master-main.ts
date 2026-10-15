@@ -1,0 +1,1 @@
+import{createApp}from'vue';import App from './MasterExtras.vue';import '../src/theme.css';import '../src/styles/components.css';import '../src/styles/master.css';createApp(App).mount('#app');

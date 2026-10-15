@@ -41,6 +41,6 @@ function emailRenderer(): Plugin {
 export default defineConfig({
   root: fileURLToPath(new URL('./sandbox', import.meta.url)),
   plugins: [vue(), emailRenderer()],
-  server: { host: '127.0.0.1', port: 5173, strictPort: false },
+  server: { host: '127.0.0.1', port: 5173, strictPort: true },
   // Deliberately separate from library vite.config.ts and dist packaging.
 });

@@ -1,0 +1,1 @@
+import {createApp} from 'vue';import DashboardMotionDemo from './DashboardMotionDemo.vue';import '../src/theme.css';import '../src/styles/components.css';import '../src/styles/dashboard.css';import '../src/styles/motion.css';createApp(DashboardMotionDemo).mount('#app');

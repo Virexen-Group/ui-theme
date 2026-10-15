@@ -1,0 +1,6 @@
+/* Shared motion tokens & transitions */
+:root{--vx-motion-fast:120ms;--vx-motion-normal:200ms;--vx-motion-slow:350ms;--vx-ease-standard:cubic-bezier(.2,0,0,1)}
+.vx-fade-enter-active,.vx-fade-leave-active,.vx-slide-enter-active,.vx-slide-leave-active,.vx-scale-enter-active,.vx-scale-leave-active{transition:opacity var(--vx-transition-duration,var(--vx-motion-normal)) var(--vx-ease-standard),transform var(--vx-transition-duration,var(--vx-motion-normal)) var(--vx-ease-standard)}
+.vx-fade-enter-from,.vx-fade-leave-to{opacity:0}.vx-slide-enter-from,.vx-slide-leave-to{opacity:0;transform:translateY(12px)}.vx-scale-enter-from,.vx-scale-leave-to{opacity:0;transform:scale(.96)}
+.vx-reveal{opacity:0;transform:translateY(12px);transition:opacity var(--vx-motion-slow) var(--vx-ease-standard),transform var(--vx-motion-slow) var(--vx-ease-standard)}.vx-reveal--visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.vx-reveal{opacity:1;transform:none;transition:none}.vx-fade-enter-active,.vx-fade-leave-active,.vx-slide-enter-active,.vx-slide-leave-active,.vx-scale-enter-active,.vx-scale-leave-active{transition:none}}

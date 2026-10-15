@@ -1,0 +1,1 @@
+<script setup lang="ts">defineProps<{name:string;subtitle?:string}>();</script><template><section class="vx-profile-layout"><header><slot name="avatar"/><div><h1>{{name}}</h1><p>{{subtitle}}</p></div><slot name="actions"/></header><nav><slot name="tabs"/></nav><div><slot/></div></section></template>

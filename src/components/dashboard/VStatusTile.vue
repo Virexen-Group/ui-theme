@@ -1,0 +1,2 @@
+<script setup lang="ts">withDefaults(defineProps<{title:string;status:'healthy'|'warning'|'error'|'neutral';description?:string}>(),{status:'neutral'});</script>
+<template><article class="vx-dash-tile"><div class="vx-dash-label">{{title}}</div><div class="vx-dash-status"><span class="vx-status-dot" :class="'vx-status-dot--'+status"/>{{status==='healthy'?'Operational':status==='warning'?'Attention':status==='error'?'Unavailable':'Unknown'}}</div><div class="vx-dash-sub">{{description}}</div><slot/></article></template>

@@ -1,0 +1,1 @@
+<script setup lang="ts">defineProps<{items:{src:string;alt?:string;id:string}[]}>();const emit=defineEmits<{select:[id:string]}>();</script><template><div class="vx-media-gallery"><button v-for="item in items" :key="item.id" type="button" @click="emit('select',item.id)"><img :src="item.src" :alt="item.alt||''" loading="lazy"/></button></div></template>

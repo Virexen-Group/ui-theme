@@ -1,0 +1,1 @@
+<script setup lang="ts">import {ref} from 'vue';defineProps<{text:string}>();const show=ref(false);</script><template><span class="vx-tooltip-wrap" @mouseenter="show=true" @mouseleave="show=false" @focusin="show=true" @focusout="show=false"><slot/><span v-if="show" role="tooltip" class="vx-tooltip-content">{{text}}</span></span></template>

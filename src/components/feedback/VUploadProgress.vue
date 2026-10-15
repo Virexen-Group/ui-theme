@@ -1,0 +1,1 @@
+<script setup lang="ts">withDefaults(defineProps<{progress:number;label?:string}>(),{label:'Uploading'});</script><template><div class="vx-upload-progress"><label>{{label}} — {{Math.round(Math.max(0,Math.min(100,progress)))}}%</label><progress :value="Math.max(0,Math.min(100,progress))" max="100"/></div></template>

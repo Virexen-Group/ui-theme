@@ -1,0 +1,1 @@
+<script setup lang="ts">defineProps<{label:string;value:string|number;description?:string}>();</script><template><div class="vx-stat"><span>{{label}}</span><strong>{{value}}</strong><small v-if="description">{{description}}</small></div></template>

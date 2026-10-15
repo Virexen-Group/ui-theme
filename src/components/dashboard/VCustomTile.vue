@@ -1,0 +1,1 @@
+<script setup lang="ts">defineProps<{title?:string}>();</script><template><article class="vx-dash-tile"><div v-if="title" class="vx-dash-label">{{title}}</div><slot/></article></template>

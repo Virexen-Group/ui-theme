@@ -1,0 +1,1 @@
+<script setup lang="ts">defineProps<{title?:string}>();</script><template><div class="vx-settings-layout"><nav aria-label="Settings"><h2>{{title||'Settings'}}</h2><slot name="navigation"/></nav><section><slot/></section></div></template>

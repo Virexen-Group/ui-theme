@@ -4,9 +4,10 @@ import { computed, ref, watch } from 'vue';
 import type { FormValues, WorkflowSection } from './workflow.types';
 
 const props = withDefaults(defineProps<{
-  sections: WorkflowSection[];
-  modelValue: FormValues;
+  sections?: WorkflowSection[];
+  modelValue?: FormValues;
   mode?: 'wizard' | 'all';
+  navigationPosition?: 'side' | 'top';
   initialSection?: string;
   showSave?: boolean;
   showSaveExit?: boolean;
@@ -15,6 +16,7 @@ const props = withDefaults(defineProps<{
   canSubmit?: boolean;
 }>(), {
   mode: 'wizard',
+  navigationPosition: 'side',
   showSave: true,
   showSaveExit: true,
   busy: false,
@@ -28,43 +30,67 @@ const emit = defineEmits<{
   'submit': [values: FormValues];
 }>();
 
-const currentIndex = ref(Math.max(0, props.sections.findIndex(s => s.id === props.initialSection)));
+const sections = computed<WorkflowSection[]>(() => props.sections ?? []);
+const values = computed<FormValues>(() => props.modelValue ?? {});
+const currentIndex = ref(Math.max(0, sections.value.findIndex(s => s.id === props.initialSection)));
 const attempted = ref(false);
 const touchedSections = ref<Set<string>>(new Set());
-watch(() => props.sections.length, length => {
+// Confirmation is separate from validity. A valid field does not imply a confirmed section.
+const confirmedSnapshots = ref<Record<string, string>>({});
+function sectionSnapshot(index: number) {
+  const section = sections.value[index];
+  if (!section) return "[]";
+  return JSON.stringify(section.fields.map(field => values.value[field.key] ?? null));
+}
+function isValid(index: number) { return Object.keys(errorsBySection.value[index] ?? {}).length === 0; }
+function confirmSection(index: number) {
+  if (!isValid(index)) return false;
+  const section = sections.value[index];
+  if (!section) return false;
+  confirmedSnapshots.value = { ...confirmedSnapshots.value, [section.id]: sectionSnapshot(index) };
+  return true;
+}
+function save(action: 'save' | 'save-exit') {
+  // Drafts may contain incomplete sections. Confirm only sections which are valid.
+  // The host application must separately report actual persistence success.
+  sections.value.forEach((_, index) => { if (isValid(index)) confirmSection(index); });
+  if (action === 'save') emit('save', { ...values.value });
+  else emit('save-exit', { ...values.value });
+}
+watch(() => sections.value.length, length => {
   if (currentIndex.value >= length) currentIndex.value = Math.max(0, length - 1);
 });
-const errorsBySection = computed(() => props.sections.map(section => {
+const errorsBySection = computed(() => sections.value.map(section => {
   const errors: Record<string, string> = {};
   for (const field of section.fields) {
-    const value = props.modelValue[field.key];
+    const value = values.value[field.key];
     const missing = value === undefined || value === null ||
       (typeof value === 'string' && value.trim() === '') ||
       (Array.isArray(value) && value.length === 0) || value === false;
     if (field.required && missing) errors[field.key] = `${field.label} is required`;
     else if (field.validate) {
-      const message = field.validate(value, props.modelValue);
+      const message = field.validate(value, values.value);
       if (message) errors[field.key] = message;
     }
   }
   return errors;
 }));
-const completed = computed(() => props.sections.map((_, index) => Object.keys(errorsBySection.value[index]).length === 0));
-const allComplete = computed(() => props.sections.length > 0 && completed.value.every(Boolean));
-const showErrors = (index: number) => attempted.value || touchedSections.value.has(props.sections[index]?.id ?? '');
-const current = computed(() => props.sections[currentIndex.value]);
+const completed = computed(() => sections.value.map((section, index) => isValid(index) && confirmedSnapshots.value[section.id] === sectionSnapshot(index)));
+const allComplete = computed(() => sections.value.length > 0 && completed.value.every(Boolean));
+const showErrors = (index: number) => attempted.value || touchedSections.value.has(sections.value[index]?.id ?? '');
+const current = computed(() => sections.value[currentIndex.value]);
 function markTouched(index: number) {
-  const section = props.sections[index];
+  const section = sections.value[index];
   if (section) touchedSections.value = new Set([...touchedSections.value, section.id]);
 }
 function goTo(index: number) {
-  if (props.busy || index < 0 || index >= props.sections.length) return;
+  if (props.busy || index < 0 || index >= sections.value.length) return;
   currentIndex.value = index;
-  emit('section-change', props.sections[index].id);
+  emit('section-change', sections.value[index].id);
 }
 function next() {
   markTouched(currentIndex.value);
-  if (!completed.value[currentIndex.value]) return;
+  if (!confirmSection(currentIndex.value)) return;
   goTo(currentIndex.value + 1);
 }
 function submit() {
@@ -74,9 +100,9 @@ function submit() {
     if (firstIncomplete >= 0) goTo(firstIncomplete);
     return;
   }
-  emit('submit', { ...props.modelValue });
+  emit('submit', { ...values.value });
 }
-function update(values: FormValues) { emit('update:modelValue', values); }
+function update(nextValues: FormValues) { emit('update:modelValue', nextValues); }
 function status(index: number) {
   if (completed.value[index]) return 'Complete';
   if (index === currentIndex.value) return 'In progress';
@@ -85,7 +111,7 @@ function status(index: number) {
 </script>
 
 <template>
-  <form class="vx-workflow" novalidate @submit.prevent="submit">
+  <form :class="['vx-workflow--' + navigationPosition]" novalidate @submit.prevent="submit">
     <nav class="vx-workflow__nav" aria-label="Form sections">
       <div class="vx-workflow__nav-title">Sections</div>
       <button v-for="(section, index) in sections" :key="section.id" type="button"
@@ -109,7 +135,7 @@ function status(index: number) {
             <p v-if="section.description">{{ section.description }}</p>
             <span class="vx-workflow__status">{{ status(index) }}</span>
           </header>
-          <slot :name="section.id" :values="modelValue" :update="update"
+          <slot :name="section.id" :values="values" :update="update"
             :errors="showErrors(index) ? errorsBySection[index] : {}"
             :section="section" />
           <p v-if="showErrors(index) && !completed[index]" class="vx-workflow__error" role="alert">
@@ -119,8 +145,8 @@ function status(index: number) {
       </template>
 
       <div class="vx-workflow__actions">
-        <button v-if="showSave" type="button" class="vx-workflow__button" :disabled="busy" @click="emit('save', { ...modelValue })">Save draft</button>
-        <button v-if="showSaveExit" type="button" class="vx-workflow__button" :disabled="busy" @click="emit('save-exit', { ...modelValue })">Save &amp; exit</button>
+        <button v-if="showSave" type="button" class="vx-workflow__button" :disabled="busy" @click="save('save')">Save draft</button>
+        <button v-if="showSaveExit" type="button" class="vx-workflow__button" :disabled="busy" @click="save('save-exit')">Save &amp; exit</button>
         <span class="vx-workflow__action-spacer" />
         <template v-if="mode === 'wizard'">
           <button v-if="currentIndex > 0" type="button" class="vx-workflow__button" :disabled="busy" @click="goTo(currentIndex - 1)">Back</button>

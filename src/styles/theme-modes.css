@@ -1,0 +1,18 @@
+/* Applied to document root by useVTheme. Overrides semantic tokens, not individual widgets. */
+:root[data-vx-theme="dark"] {
+ color-scheme:dark;
+ --color-bg:#0e1524; --color-bg-deep:#101b2d;
+ --color-panel:rgba(25,35,54,.95); --color-panel-strong:#192336;
+ --color-line:rgba(209,223,249,.12); --color-line-strong:rgba(209,223,249,.22);
+ --color-text:#e7eefc; --color-muted:#afbdd5; --color-ink:#081220;
+ --color-input-bg:#202e45; --color-header-bg:#192336;
+ --color-highlight:#35cbbf; --color-accent:#f9ae75;
+ --color-danger:#ff8195; --color-success:#55d89c; --color-warning:#efbe59;
+ --focus:0 0 0 3px rgba(53,203,191,.42);
+}
+:root[data-vx-theme="light"] { color-scheme:light; }
+:root[data-vx-theme] body {background:var(--color-bg);color:var(--color-text)}
+.vx-theme-toggle {display:inline-flex;align-items:center;gap:8px;font-size:.85rem;color:var(--color-text)}
+.vx-theme-toggle select {min-height:40px;padding:7px 30px 7px 10px;background:var(--color-panel-strong);border:1px solid var(--color-line-strong);border-radius:10px;color:var(--color-text);font:inherit}
+/* Tokens consumed by CSS-only and Vue components. */
+:root[data-vx-theme="dark"] .catalog-card, :root[data-vx-theme="dark"] .catalog-header {background:var(--color-panel-strong);color:var(--color-text)}

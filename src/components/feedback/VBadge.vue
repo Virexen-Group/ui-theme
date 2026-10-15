@@ -1,0 +1,1 @@
+<script setup lang="ts">withDefaults(defineProps<{tone?:'neutral'|'success'|'warning'|'error'|'info'}>(),{tone:'neutral'});</script><template><span class="vx-badge" :data-tone="tone"><slot/></span></template>

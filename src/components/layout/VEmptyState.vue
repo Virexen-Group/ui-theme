@@ -1,0 +1,1 @@
+<script setup lang="ts">defineProps<{title:string;description?:string}>();</script><template><section class="vx-empty-state"><h3>{{title}}</h3><p v-if="description">{{description}}</p><slot/></section></template>
