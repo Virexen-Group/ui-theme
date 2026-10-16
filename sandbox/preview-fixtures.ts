@@ -1,6 +1,7 @@
 // Realistic demonstration props for the public component catalogue.
 // Keep this data sample-only; never load production information here.
 export const previewFixtures: Record<string, Record<string, unknown>> = {
+  VAccountListItem:{name:"Stewart McCafferty",email:"stewart@virexengroup.com",active:true,badge:"Signed in"},
   VSettingsLinkCard:{title:"General",description:"Basic settings for your Virexen environment, company details and regional preferences.",icon:"settings"},
   VPaymentBrandIcon:{brand:"visa",size:52},
   VProductCard: {currency:"USD"},

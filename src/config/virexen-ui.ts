@@ -2,7 +2,7 @@ import type { App, InjectionKey } from 'vue';
 import { inject, readonly, shallowRef } from 'vue';
 import { initVTheme, setVTheme } from '../composables/useVTheme';
 
-export type VxThemePreset = 'default' | 'calm' | 'bold' | 'enterprise';
+export type VxThemePreset = 'default' | 'calm' | 'bold' | 'enterprise' | 'identity';
 export type VxAppearance = 'light' | 'dark' | 'system';
 export interface VirexenUIConfig {
   app?: { id?: string; name?: string };

@@ -19,3 +19,12 @@
 .vx-identity__hint:empty {display:none}
 @media (max-width:480px) {.vx-identity {padding:20px 14px}.vx-identity__group {gap:18px}.vx-identity__card {border-radius:16px}}
 @media (prefers-reduced-motion:reduce) {.vx-identity * {scroll-behavior:auto;transition:none!important}}
+/* Identity preset: soft blue gradient page, lighter card and brighter actions (data-vx-preset="identity"). */
+[data-vx-preset="identity"] body { background:#f3f7ff; }
+[data-vx-preset="identity"] .vx-identity { background:radial-gradient(1200px 600px at 100% 0%,rgba(31,111,235,.10),transparent 60%),radial-gradient(900px 520px at 0% 100%,rgba(31,111,235,.08),transparent 60%),linear-gradient(180deg,#f6f9ff 0%,#eef4ff 100%); }
+[data-vx-preset="identity"] .vx-identity__card { border-color:rgba(31,64,140,.08); border-radius:20px; box-shadow:0 1px 2px rgba(16,40,90,.04),0 18px 48px rgba(23,64,140,.10); }
+[data-vx-preset="identity"] .vx-identity__logo { width:48px; height:48px; border-radius:12px; }
+[data-vx-preset="identity"] .vx-identity__brand { font-size:1rem; gap:8px; }
+[data-vx-preset="identity"] .vx-button--primary { background:linear-gradient(180deg,#2f7df4 0%,#1f6feb 100%); box-shadow:0 6px 16px rgba(31,111,235,.25); }
+[data-vx-preset="identity"] .vx-button--primary:hover:not(:disabled) { background:var(--vx-action-hover); }
+[data-vx-preset="identity"] .vx-button--danger { background:#d93848; border-color:#d93848; color:#fff; }

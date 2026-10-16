@@ -1,7 +1,9 @@
 /* Additive Virexen component styles: mobile first; preserves existing .vx-button API */
 [data-vx-preset="default"]{--vx-action:#10aa9d;--vx-action-hover:#068b81;--vx-action-text:#fff;--vx-soft:#daf5ef;--vx-elevation:0 9px 24px rgba(15,23,42,.12);--vx-surface:var(--color-panel-strong,#fff);--vx-border:var(--color-line-strong,#dce2ed);--vx-text:var(--color-text,#142344)}
 [data-vx-preset="calm"]{--vx-action:#5f9bba;--vx-action-hover:#3e7899;--vx-soft:#e4f1f8;--vx-elevation:0 7px 19px rgba(30,70,102,.08)}
+:root{--vx-action-text:#fff}
 :root,[data-vx-preset="bold"]{--vx-action:#193b9f;--vx-action-hover:#10296e;--vx-soft:#dce6ff;--vx-elevation:0 10px 26px rgba(18,37,100,.18)}
+[data-vx-preset="identity"]{--vx-action:#1f6feb;--vx-action-hover:#1758c7;--vx-action-text:#fff;--vx-soft:#e8f0ff;--vx-primary:#1f6feb;--vx-focus:0 0 0 3px rgba(31,111,235,.28);--vx-elevation:0 12px 32px rgba(23,64,140,.12)}
 [data-vx-preset="enterprise"]{--vx-action:#44566b;--vx-action-hover:#293a4b;--vx-soft:#edf0f3;--vx-elevation:0 7px 22px rgba(15,23,42,.09)}
 .vx-button{transition:background .17s ease,transform .17s ease,box-shadow .17s ease;gap:8px}
 .vx-button--primary{background:var(--vx-action);border-color:var(--vx-action);color:var(--vx-action-text)}

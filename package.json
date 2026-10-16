@@ -1,6 +1,6 @@
 {
   "name": "@virexen-group/ui-theme",
-  "version": "0.6.8",
+  "version": "0.6.9",
   "private": false,
   "type": "module",
   "description": "Shared Virexen Master UI with typed manifests, appearance presets, commerce components and branded email templates",
@@ -598,7 +598,12 @@
     "./vue/transaction-list": {
       "types": "./dist/vue/entries/transaction-list.d.ts",
       "import": "./dist/vue/entries/transaction-list.js"
-    }
+    },
+    "./vue/account-list-item": {
+      "types": "./dist/vue/entries/account-list-item.d.ts",
+      "import": "./dist/vue/entries/account-list-item.js"
+    },
+    "./vue.css": "./dist/vue/ui-theme.css"
   },
   "files": [
     "dist"

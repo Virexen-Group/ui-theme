@@ -195,3 +195,5 @@ export {default as VFeeBreakdown} from './components/commerce/VFeeBreakdown.vue'
 
 export {default as VSettingsLinkCard} from './components/navigation/VSettingsLinkCard.vue';
 export {default as VPaymentBrandIcon} from './components/commerce/VPaymentBrandIcon.vue';
+
+export {default as VAccountListItem} from './components/account/VAccountListItem.vue';

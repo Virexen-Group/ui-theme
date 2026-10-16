@@ -620,5 +620,6 @@ export const docsComponents = [
   {name:"VAccountBalance", category:"commerce", aliasOf:""},
   {name:"VFeeBreakdown", category:"commerce", aliasOf:""},
   {"name":"VSettingsLinkCard","category":"components","aliasOf":""},
-  {"name":"VPaymentBrandIcon","category":"commerce","aliasOf":""}
+  {"name":"VPaymentBrandIcon","category":"commerce","aliasOf":""},
+  {"name":"VAccountListItem","category":"components","aliasOf":""}
 ] as const;
