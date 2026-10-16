@@ -49,11 +49,12 @@ test('compiled component styles are importable',()=>{
   assert.equal(JSON.parse(read('package.json')).exports['./vue.css'],'./dist/vue/ui-theme.css');
 });
 
-test('VAccountListItem falls back to initials when a photo fails to load',()=>{
+test('VAccountListItem falls back to the default avatar, then initials, when a photo fails to load',()=>{
   const sfc=read('src/components/account/VAccountListItem.vue');
-  assert.match(sfc,/@error="photoFailed = true"/);
-  assert.match(sfc,/v-if="avatarUrl && !photoFailed"/);
-  assert.match(sfc,/watch\(\(\) => props\.avatarUrl/);
+  assert.match(sfc,/@error="failures\+\+"/);
+  assert.match(sfc,/fallbackAvatarUrl: VIREXEN_DEFAULT_AVATAR_URL/);
+  assert.match(sfc,/failures\.value === 1 && props\.fallbackAvatarUrl/);
+  assert.match(read('src/data/virexen-brand.ts'),/VIREXEN_DEFAULT_AVATAR_URL = 'https:\/\/pub-518cee5833ed42078011ad11e2f30d26\.r2\.dev\/avatars\/defaults\/virexen-default-avatar\.png'/);
 });
 
 test('VConfirmDialog manages focus, traps Tab and uses shared buttons',()=>{

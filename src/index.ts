@@ -146,7 +146,7 @@ export { default as VAspectRatio } from './components/layout/VAspectRatio.vue';
 export { default as VScrollArea } from './components/layout/VScrollArea.vue';
 export { default as VSection } from './components/layout/VSection.vue';
 export { default as VBrandLogo } from './components/branding/VBrandLogo.vue';
-export { VIREXEN_BRAND_ASSETS, VIREXEN_BRAND_COLORS, VIREXEN_PRODUCT_BRANDS, getVirexenBrandUrl } from './data/virexen-brand';
+export { VIREXEN_BRAND_ASSETS, VIREXEN_BRAND_COLORS, VIREXEN_DEFAULT_AVATAR_URL, VIREXEN_PRODUCT_BRANDS, getVirexenBrandUrl } from './data/virexen-brand';
 export type { VirexenBrand, VirexenBrandFormat } from './data/virexen-brand';
 
 export { useFloatingPosition } from './composables/useFloatingPosition';

@@ -31,3 +31,6 @@ export const VIREXEN_BRAND_COLORS = {
   neutral: {50:'#f8fafb',100:'#f1f5f6',200:'#e2e9eb',300:'#c9d4d7',400:'#94a5aa',500:'#687a80',600:'#4a5d63',700:'#36474c',800:'#243338',900:'#152428'},
   white:'#ffffff', ink:'#132f32'
 } as const;
+
+/** The Virexen default profile picture, shown when a person's own photo can't load. */
+export const VIREXEN_DEFAULT_AVATAR_URL = 'https://pub-518cee5833ed42078011ad11e2f30d26.r2.dev/avatars/defaults/virexen-default-avatar.png';
