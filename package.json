@@ -1,6 +1,6 @@
 {
   "name": "@virexen-group/ui-theme",
-  "version": "0.6.9",
+  "version": "0.6.10",
   "private": false,
   "type": "module",
   "description": "Shared Virexen Master UI with typed manifests, appearance presets, commerce components and branded email templates",

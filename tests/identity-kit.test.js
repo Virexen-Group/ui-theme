@@ -48,3 +48,19 @@ test('VAccountListItem is exported, documented and globally styled',()=>{
 test('compiled component styles are importable',()=>{
   assert.equal(JSON.parse(read('package.json')).exports['./vue.css'],'./dist/vue/ui-theme.css');
 });
+
+test('VAccountListItem falls back to initials when a photo fails to load',()=>{
+  const sfc=read('src/components/account/VAccountListItem.vue');
+  assert.match(sfc,/@error="photoFailed = true"/);
+  assert.match(sfc,/v-if="avatarUrl && !photoFailed"/);
+  assert.match(sfc,/watch\(\(\) => props\.avatarUrl/);
+});
+
+test('VConfirmDialog manages focus, traps Tab and uses shared buttons',()=>{
+  const sfc=read('src/components/dialogs/VConfirmDialog.vue');
+  for(const part of ['data-vx-dialog-cancel','aria-modal="true"','aria-labelledby','opener?.focus','event.key !== \'Tab\'','<VButton','busy?: boolean','cancelText?: string','<slot />'])
+    assert.ok(sfc.includes(part),`VConfirmDialog is missing ${part}`);
+  // Existing callers keep working.
+  assert.match(sfc,/confirm: \[\]; cancel: \[\]/);
+  assert.match(sfc,/requirePhrase\?: string/);
+});

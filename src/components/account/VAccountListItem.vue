@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref, watch } from 'vue';
 import VIcon from '../icons/VIcon.vue';
 
 /**
@@ -17,6 +17,9 @@ const emit = defineEmits<{ select: [] }>();
 const initials = computed(() => props.name.trim().split(/\s+/).slice(0, 2).map(part => part[0]?.toUpperCase() ?? '').join('') || '?');
 // A stable colour per name so the same person always gets the same avatar colour.
 const hue = computed(() => [...props.name].reduce((sum, ch) => (sum * 31 + ch.charCodeAt(0)) % 360, 7));
+// A photo that fails to load falls back to the initials avatar.
+const photoFailed = ref(false);
+watch(() => props.avatarUrl, () => (photoFailed.value = false));
 function select() { if (props.interactive && !props.disabled) emit('select'); }
 </script>
 
@@ -32,7 +35,7 @@ function select() { if (props.interactive && !props.disabled) emit('select'); }
     >
       <span v-if="icon" class="vx-account-item__icon" aria-hidden="true"><VIcon :name="icon" :size="22" /></span>
       <span v-else class="vx-account-item__avatar" aria-hidden="true" :style="{ '--vx-avatar-hue': hue }">
-        <img v-if="avatarUrl" :src="avatarUrl" alt="" referrerpolicy="no-referrer" />
+        <img v-if="avatarUrl && !photoFailed" :src="avatarUrl" alt="" referrerpolicy="no-referrer" @error="photoFailed = true" />
         <template v-else>{{ initials }}</template>
       </span>
       <span class="vx-account-item__text">
