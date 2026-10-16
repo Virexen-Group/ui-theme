@@ -1,0 +1,13 @@
+<script setup lang="ts">
+import {computed,nextTick,ref,watch} from 'vue';
+const p=withDefaults(defineProps<{modelValue?:string;length?:number;digitsOnly?:boolean;masked?:boolean;disabled?:boolean;label?:string;autocomplete?:string}>(),{modelValue:'',length:6,digitsOnly:true,masked:false,label:'Verification code',autocomplete:'one-time-code'});
+const emit=defineEmits<{'update:modelValue':[value:string];complete:[value:string]}>();
+const count=computed(()=>Math.min(12,Math.max(1,Math.floor(p.length||6))));const boxes=ref<HTMLInputElement[]>([]);
+const chars=computed(()=>Array.from({length:count.value},(_,i)=>Array.from(p.modelValue||'')[i]||''));
+function clean(value:string){return [...value].filter(x=>p.digitsOnly?/\d/.test(x):/[a-zA-Z0-9]/.test(x)).join('').slice(0,count.value)}
+function update(v:string){const next=clean(v);emit('update:modelValue',next);if(next.length===count.value)emit('complete',next)}
+function fill(index:number,input:string){const value=clean(input);if(!value)return;const arr=chars.value.slice();for(let j=0;j<value.length&&index+j<count.value;j++)arr[index+j]=value[j];update(arr.join(''));nextTick(()=>boxes.value[Math.min(index+value.length,count.value-1)]?.focus())}
+function key(e:KeyboardEvent,index:number){if(e.key==='Backspace'){e.preventDefault();const a=chars.value.slice();if(a[index])a[index]='';else if(index>0){a[index-1]='';boxes.value[index-1]?.focus()}update(a.join(''))}else if(e.key==='ArrowLeft'){e.preventDefault();boxes.value[Math.max(0,index-1)]?.focus()}else if(e.key==='ArrowRight'){e.preventDefault();boxes.value[Math.min(count.value-1,index+1)]?.focus()}}
+function paste(e:ClipboardEvent,index:number){e.preventDefault();fill(index,e.clipboardData?.getData('text')||'')}
+watch(count,()=>{if((p.modelValue||'').length>count.value)update(p.modelValue||'')});
+</script><template><fieldset class="vx-code-input" :disabled="disabled"><legend class="vx-field__label">{{label}}</legend><div class="vx-code-input__boxes"><input v-for="(ch,i) in chars" :key="i" :ref="el=>{if(el)boxes[i]=el as HTMLInputElement}" :value="ch" :type="masked?'password':'text'" :autocomplete="i===0?autocomplete:'off'" :inputmode="digitsOnly?'numeric':'text'" :aria-label="`Character ${i+1} of ${count}`" maxlength="1" :disabled="disabled" @input="fill(i,($event.target as HTMLInputElement).value)" @keydown="key($event,i)" @paste="paste($event,i)"/></div></fieldset></template>

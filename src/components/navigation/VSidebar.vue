@@ -22,16 +22,24 @@ const props = withDefaults(defineProps<{
   ariaLabel?: string;
   brandingPlacement?: 'header' | 'sidebar';
   apps?: VirexenApp[];
+  otherApps?: VirexenApp[];
   activeAppId?: string;
   logoUrl?: string;
   compactLogoUrl?: string;
+  showBrand?: boolean;
+  showLogo?: boolean;
+  showAppSwitcher?: boolean;
 }>(), {
   brand: 'Virexen',
   expanded: true,
   mobileOpen: false,
   ariaLabel: 'Application navigation',
   brandingPlacement: 'header',
-  apps: () => []
+  apps: () => [],
+  otherApps: () => [],
+  showBrand: true,
+  showLogo: true,
+  showAppSwitcher: true
 });
 
 const emit = defineEmits<{
@@ -88,10 +96,10 @@ watch(() => props.mobileOpen, open => { if (!open) flyoutId.value = null; });
 <template>
     <div v-if="mobileOpen" class="vx-sidebar__scrim" @click="emit('update:mobileOpen', false)" />
     <aside :class="['vx-sidebar', { 'vx-sidebar--expanded': isExpanded, 'vx-sidebar--mobile-open': mobileOpen }]" :aria-label="ariaLabel">
-      <div class="vx-sidebar__mobile-title"><strong>{{ brand }}</strong><button class="vx-sidebar__icon-button" aria-label="Close navigation" @click="emit('update:mobileOpen', false)">×</button></div>
-      <div v-if="brandingPlacement === 'sidebar'" class="vx-sidebar__brand">
-        <VAppSwitcher v-if="apps.length" :apps="apps" :active-id="activeAppId||apps[0]?.id||''" :compact="!isExpanded && !mobileOpen" :label="brand" :logo-url="logoUrl" :compact-logo-url="compactLogoUrl" @select="emit('appSelect',$event)" />
-        <div v-else class="vx-sidebar__static-brand"><img v-if="isExpanded || mobileOpen ? logoUrl : compactLogoUrl||logoUrl" :src="isExpanded || mobileOpen ? logoUrl : compactLogoUrl||logoUrl" alt="" /><strong v-if="isExpanded || mobileOpen">{{brand}}</strong></div>
+      <div v-if="showBrand" class="vx-sidebar__mobile-title"><strong>{{ brand }}</strong><button class="vx-sidebar__icon-button" aria-label="Close navigation" @click="emit('update:mobileOpen', false)">×</button></div>
+      <div v-if="brandingPlacement === 'sidebar' && showBrand" class="vx-sidebar__brand">
+        <VAppSwitcher v-if="showAppSwitcher && apps.length" :apps="apps" :other-apps="otherApps" :active-id="activeAppId||apps[0]?.id||''" :compact="!isExpanded && !mobileOpen" :label="brand" :logo-url="showLogo ? logoUrl : undefined" :compact-logo-url="showLogo ? compactLogoUrl : undefined" @select="emit('appSelect',$event)" />
+        <div v-else class="vx-sidebar__static-brand"><img v-if="showLogo && (isExpanded || mobileOpen ? logoUrl : compactLogoUrl||logoUrl)" :src="isExpanded || mobileOpen ? logoUrl : compactLogoUrl||logoUrl" alt="" /><strong v-if="isExpanded || mobileOpen">{{brand}}</strong></div>
       </div>
       <nav class="vx-sidebar__nav" :aria-label="ariaLabel">
         <div v-for="item in items" :key="item.id" class="vx-sidebar__group" @mouseenter="showFlyout($event, item)" @mouseleave="scheduleHide">

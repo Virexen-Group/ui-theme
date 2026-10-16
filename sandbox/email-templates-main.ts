@@ -1,0 +1,1 @@
+import {createApp} from 'vue';import EmailTemplates from './EmailTemplates.vue';import '../src/theme.css';import '../src/styles/components.css';import '../src/styles/master.css';createApp(EmailTemplates).mount('#app');

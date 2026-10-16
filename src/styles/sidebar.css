@@ -59,3 +59,21 @@
 .vx-switcher--compact .vx-switcher__trigger{justify-content:center}
 @media(min-width:768px){.vx-sidebar:not(.vx-sidebar--expanded) .vx-switcher__menu{left:calc(100% + 8px);top:0}.vx-sidebar:not(.vx-sidebar--expanded) .vx-sidebar__brand{padding:12px 7px}}
 @media(max-width:767px){.vx-sidebar__brand{padding:10px}.vx-switcher__menu{position:relative;left:auto;top:auto;width:100%;box-shadow:none;margin-top:6px}.vx-sidebar__mobile-title{display:none}.vx-sidebar__brand{padding-top:max(16px,env(safe-area-inset-top))}}
+
+/* Google-style Virexen app launcher: also usable without a sidebar. */
+.vx-switcher__launcher{width:42px;height:42px;display:grid;place-items:center;border:0;border-radius:50%;color:var(--vx-text,#21304b);background:transparent;cursor:pointer}
+.vx-switcher__launcher:hover,.vx-switcher__launcher:focus-visible{background:var(--vx-input,#e9effa);outline-offset:2px}
+.vx-switcher--grid{width:auto;flex:none}
+.vx-switcher--grid .vx-switcher__menu{right:0;left:auto;top:calc(100% + 12px);width:min(380px,calc(100vw - 24px));max-height:min(560px,75vh);overflow-y:auto;border-radius:24px;padding:15px;background:var(--vx-surface,#fff);color:var(--vx-text,#14254c);border-color:var(--vx-border,#dfe6f2)}
+.vx-switcher__heading{display:flex;justify-content:space-between;align-items:center}
+.vx-switcher__close{border:0;background:transparent;font-size:24px;cursor:pointer;color:inherit;border-radius:9px}
+.vx-switcher__choices--grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+.vx-switcher__choices--grid .vx-switcher__choice{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;min-height:100px;padding:10px 5px;text-align:center;border-radius:14px}
+.vx-switcher__choices--grid .vx-switcher__choice-logo{width:46px;height:46px;border-radius:12px}
+.vx-switcher__choices--grid .vx-switcher__choice-text{flex:initial;max-width:100%;display:block}
+.vx-switcher__choices--grid .vx-switcher__choice-text strong{display:block;font-size:12px;white-space:normal;line-height:1.3}
+.vx-switcher__choices--grid .vx-switcher__choice-text small,.vx-switcher__choices--grid .vx-switcher__choice>svg{display:none}
+.vx-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* Separate authorised third-party/tenant apps from the public Virexen launcher. */
+.vx-switcher__section-title{margin-top:10px;padding-top:14px;border-top:1px solid var(--vx-border,#dfe6f2);font-size:12px;letter-spacing:.025em}

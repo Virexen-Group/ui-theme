@@ -6,9 +6,9 @@ test('multiselect defaults missing options and selected values', () => {
  assert.match(code,/options:\(\)=>\[\]/);
  assert.match(code,/modelValue:\(\)=>\[\]/);
 });
-test('documentation previews avoid unconfigured components', () => {
+test('documentation previews use fixtures and isolate errors', () => {
  const code=readFileSync(new URL('../sandbox/DocsExample.vue',import.meta.url),'utf8');
- assert.match(code,/safePreviewNames/);
- assert.match(code,/!safePreviewNames.has\(actual.value\)/);
- assert.match(code,/n==='VMultiSelect'/);
+ assert.match(code,/previewFixtures/);
+ assert.match(code,/DocsPreviewBoundary/);
+ assert.match(code,/fullPageUrl/);
 });

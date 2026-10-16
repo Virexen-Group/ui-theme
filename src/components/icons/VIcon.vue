@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { House, Settings, Users, CalendarDays, Search, Bell, Wallet, ShieldCheck, HeartPulse, FileText, CloudUpload, CircleHelp, ChartNoAxesColumn, Building2, LogOut, ChevronDown, ChevronRight, Check, Boxes, Database, Folder, CreditCard, LayoutGrid, Menu, PanelLeftClose, PanelLeftOpen, TentTree, Activity, CircleUserRound, Layers, Package, type LucideIcon } from '@lucide/vue';
+import { House, Settings, Users, CalendarDays, Search, Bell, Wallet, ShieldCheck, HeartPulse, FileText, CloudUpload, CircleHelp, ChartNoAxesColumn, Building2, LogOut, ChevronDown, ChevronRight, Check, Boxes, Database, Folder, CreditCard, LayoutGrid, Menu, PanelLeftClose, PanelLeftOpen, TentTree, Activity, CircleUserRound, Layers, Package, Headset, BellRing, type LucideIcon } from '@lucide/vue';
 const icons: Record<string, LucideIcon> = {
   home: House, settings: Settings, users: Users, calendar: CalendarDays, search: Search,
-  notifications: Bell, finance: Wallet, security: ShieldCheck, health: HeartPulse,
+  notifications: Bell, 'bell-ring': BellRing, headset: Headset, finance: Wallet, security: ShieldCheck, health: HeartPulse,
   documents: FileText, upload: CloudUpload, support: CircleHelp, help: CircleHelp,
   activity: Activity, chart: ChartNoAxesColumn, organisation: Building2, building: Building2,
   logout: LogOut, 'chevron-down': ChevronDown, 'chevron-right': ChevronRight,

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue';
+import { getVirexenFallbackUrl } from '../../data/app-icons';
 import { VIREXEN_BRAND_ASSETS, getVirexenBrandUrl, type VirexenBrand, type VirexenBrandFormat } from '../../data/virexen-brand';
 
 const props = withDefaults(defineProps<{
@@ -16,6 +17,7 @@ const props = withDefaults(defineProps<{
   brand: 'Virexen', format: 'svg', size: 48, resolution: 512, loading: 'lazy'
 });
 const failed = ref(false);
+const current = ref('');
 const source = computed(() => {
   if (props.src) return props.src;
   // All family-brand paths use the current 512px PNG or scalable SVG.
@@ -32,9 +34,14 @@ const dimensions = computed(() => ({
   height: length(props.height ?? props.size),
   objectFit: 'contain' as const
 }));
-watch(source, () => { failed.value = false; });
+watch(source, url => { current.value = url; failed.value = false; }, {immediate:true});
+function onError() {
+  const fallback=getVirexenFallbackUrl(source.value);
+  if (current.value===source.value && fallback) current.value=fallback;
+  else failed.value=true;
+}
 </script>
 <template>
-  <img v-if="!failed" class="vx-brand-logo" :src="source" :alt="label" :style="dimensions" :loading="loading" decoding="async" @error="failed=true" />
+  <img v-if="!failed" class="vx-brand-logo" :src="current" :alt="label" :style="dimensions" :loading="loading" decoding="async" @error="onError" />
   <span v-else class="vx-brand-logo-fallback" role="img" :aria-label="label" :style="dimensions">{{ brand === 'Virexen' ? 'V' : brand.charAt(0) }}</span>
 </template>

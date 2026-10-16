@@ -1,4 +1,6 @@
 export const catalogCategories = [
+  {id:"email",title:"Email Templates",description:"Brand email design studio, HTML and responsive previews",url:"/email-templates.html"},
+  {"id":"components","title":"Application Components","description":"Header, sidebar, button packs and application component previews","url":"/components.html"},
   {
     "id": "forms",
     "title": "Forms & Validation",
@@ -26,7 +28,7 @@ export const catalogCategories = [
   {
     "id": "feedback",
     "title": "Feedback & Overlays",
-    "description": "Toasts, notices, dialogs, drawers and popovers",
+    "description": "Live toasts, notices, dialogs, drawers and popovers",
     "url": "/feedback.html"
   },
   {
@@ -38,7 +40,7 @@ export const catalogCategories = [
   {
     "id": "foundations",
     "title": "Foundations & Branding",
-    "description": "Theme manifest, tokens, Lucide icons, colours and motion",
+    "description": "Interactive theme presets, icons, colours, branding and motion",
     "url": "/foundations.html"
   },
   {

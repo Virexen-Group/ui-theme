@@ -1,11 +1,17 @@
 import { defineConfig, type Plugin } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { fileURLToPath } from 'node:url';
+import { renderBrandedEmail, renderBrandedEmailText } from './src/email-brands.js';
 
 function emailRenderer(): Plugin {
   return {
     name: 'virexen-sandbox-email-renderer',
     configureServer(server) {
+      server.middlewares.use('/__sandbox/render-brand-email',async(req,res)=>{
+        res.setHeader('Content-Type','application/json; charset=utf-8');res.setHeader('Cache-Control','no-store');
+        if(req.method!=='POST'){res.statusCode=405;res.end(JSON.stringify({error:'POST required'}));return;}
+        try{let raw='';for await(const chunk of req){raw+=chunk.toString();if(raw.length>100000)throw Error('Payload too large')};const input=JSON.parse(raw);res.end(JSON.stringify({html:renderBrandedEmail(input),text:renderBrandedEmailText(input)}));}catch(e){res.statusCode=400;res.end(JSON.stringify({error:e instanceof Error?e.message:String(e)}))}
+      });
       server.middlewares.use('/__sandbox/render-email', async (req, res) => {
         res.setHeader('Content-Type', 'application/json; charset=utf-8');
         res.setHeader('Cache-Control', 'no-store');

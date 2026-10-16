@@ -152,3 +152,46 @@ export type { VirexenBrand, VirexenBrandFormat } from './data/virexen-brand';
 export { useFloatingPosition } from './composables/useFloatingPosition';
 export { generateBrandPalette, meetsTextContrast } from './utils/brand-colors';
 export { default as VFloatingPopover } from './components/overlays/VFloatingPopover.vue';
+
+export {default as VAppIcon} from './components/branding/VAppIcon.vue';
+export {getVirexenAppIconUrl,getVirexenFallbackUrl,VIREXEN_APP_ICON_NAMES,VIREXEN_APP_ICON_SIZES} from './data/app-icons';
+export type {VirexenAppIconName,VirexenAppIconFormat,VirexenAppIconSize} from './data/app-icons';
+export { VIREXEN_LAUNCHER_APPS } from './data/virexen-app-launcher';
+
+export {default as VSecureInput} from './components/forms/VSecureInput.vue';
+export {default as VCodeInput} from './components/forms/VCodeInput.vue';
+
+// Commerce & billing presentation components
+export {default as VProductCard} from './components/commerce/VProductCard.vue';
+export {default as VProductSelector} from './components/commerce/VProductSelector.vue';
+export {default as VQuantitySelector} from './components/commerce/VQuantitySelector.vue';
+export {default as VDiscountCode} from './components/commerce/VDiscountCode.vue';
+export {default as VDiscountBadge} from './components/commerce/VDiscountBadge.vue';
+export {default as VBillingCycleSelector} from './components/commerce/VBillingCycleSelector.vue';
+export {default as VPlanComparison} from './components/commerce/VPlanComparison.vue';
+export {default as VCheckoutSteps} from './components/commerce/VCheckoutSteps.vue';
+export {default as VPaymentMethodSelector} from './components/commerce/VPaymentMethodSelector.vue';
+export {default as VPaymentMethodForm} from './components/commerce/VPaymentMethodForm.vue';
+export {default as VSecurePaymentNotice} from './components/commerce/VSecurePaymentNotice.vue';
+export {default as VPaymentSchedule} from './components/commerce/VPaymentSchedule.vue';
+export {default as VCheckoutSummary} from './components/commerce/VCheckoutSummary.vue';
+export {default as VPaymentStatus} from './components/commerce/VPaymentStatus.vue';
+export {default as VPaymentConfirmation} from './components/commerce/VPaymentConfirmation.vue';
+export {default as VInvoiceCard} from './components/commerce/VInvoiceCard.vue';
+export {default as VInvoiceLineItems} from './components/commerce/VInvoiceLineItems.vue';
+export {default as VInvoiceTimeline} from './components/commerce/VInvoiceTimeline.vue';
+export {default as VReceiptPreview} from './components/commerce/VReceiptPreview.vue';
+export {default as VSubscriptionCard} from './components/commerce/VSubscriptionCard.vue';
+export {default as VPlanChangeSummary} from './components/commerce/VPlanChangeSummary.vue';
+export {default as VRenewalNotice} from './components/commerce/VRenewalNotice.vue';
+export {default as VOverdueNotice} from './components/commerce/VOverdueNotice.vue';
+export {default as VTransactionList} from './components/commerce/VTransactionList.vue';
+export {default as VTransactionDetails} from './components/commerce/VTransactionDetails.vue';
+export {default as VRefundSummary} from './components/commerce/VRefundSummary.vue';
+export {default as VAccountBalance} from './components/commerce/VAccountBalance.vue';
+export {default as VFeeBreakdown} from './components/commerce/VFeeBreakdown.vue';
+
+// Commerce & billing presentation components
+
+export {default as VSettingsLinkCard} from './components/navigation/VSettingsLinkCard.vue';
+export {default as VPaymentBrandIcon} from './components/commerce/VPaymentBrandIcon.vue';

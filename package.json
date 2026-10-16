@@ -1,9 +1,9 @@
 {
   "name": "@virexen-group/ui-theme",
-  "version": "0.6.7",
+  "version": "0.6.8",
   "private": false,
   "type": "module",
-  "description": "Shared Virexen Master UI with typed manifests, appearance presets and centred Identity forms",
+  "description": "Shared Virexen Master UI with typed manifests, appearance presets, commerce components and branded email templates",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Virexen-Group/ui-theme.git"
@@ -462,6 +462,142 @@
     "./vue/floating-popover": {
       "types": "./dist/vue/entries/floating-popover.d.ts",
       "import": "./dist/vue/entries/floating-popover.js"
+    },
+    "./vue/app-icon": {
+      "types": "./dist/vue/entries/app-icon.d.ts",
+      "import": "./dist/vue/entries/app-icon.js"
+    },
+    "./email-brands": {
+      "types": "./dist/email-brands.d.ts",
+      "import": "./dist/email-brands.js"
+    },
+    "./vue/secure-input": {
+      "types": "./dist/vue/entries/secure-input.d.ts",
+      "import": "./dist/vue/entries/secure-input.js"
+    },
+    "./vue/code-input": {
+      "types": "./dist/vue/entries/code-input.d.ts",
+      "import": "./dist/vue/entries/code-input.js"
+    },
+    "./vue/settings-link-card": {
+      "types": "./dist/vue/entries/settings-link-card.d.ts",
+      "import": "./dist/vue/entries/settings-link-card.js"
+    },
+    "./vue/payment-brand-icon": {
+      "types": "./dist/vue/entries/payment-brand-icon.d.ts",
+      "import": "./dist/vue/entries/payment-brand-icon.js"
+    },
+    "./vue/account-balance": {
+      "types": "./dist/vue/entries/account-balance.d.ts",
+      "import": "./dist/vue/entries/account-balance.js"
+    },
+    "./vue/billing-cycle-selector": {
+      "types": "./dist/vue/entries/billing-cycle-selector.d.ts",
+      "import": "./dist/vue/entries/billing-cycle-selector.js"
+    },
+    "./vue/checkout-steps": {
+      "types": "./dist/vue/entries/checkout-steps.d.ts",
+      "import": "./dist/vue/entries/checkout-steps.js"
+    },
+    "./vue/checkout-summary": {
+      "types": "./dist/vue/entries/checkout-summary.d.ts",
+      "import": "./dist/vue/entries/checkout-summary.js"
+    },
+    "./vue/discount-badge": {
+      "types": "./dist/vue/entries/discount-badge.d.ts",
+      "import": "./dist/vue/entries/discount-badge.js"
+    },
+    "./vue/discount-code": {
+      "types": "./dist/vue/entries/discount-code.d.ts",
+      "import": "./dist/vue/entries/discount-code.js"
+    },
+    "./vue/fee-breakdown": {
+      "types": "./dist/vue/entries/fee-breakdown.d.ts",
+      "import": "./dist/vue/entries/fee-breakdown.js"
+    },
+    "./vue/invoice-card": {
+      "types": "./dist/vue/entries/invoice-card.d.ts",
+      "import": "./dist/vue/entries/invoice-card.js"
+    },
+    "./vue/invoice-line-items": {
+      "types": "./dist/vue/entries/invoice-line-items.d.ts",
+      "import": "./dist/vue/entries/invoice-line-items.js"
+    },
+    "./vue/invoice-timeline": {
+      "types": "./dist/vue/entries/invoice-timeline.d.ts",
+      "import": "./dist/vue/entries/invoice-timeline.js"
+    },
+    "./vue/overdue-notice": {
+      "types": "./dist/vue/entries/overdue-notice.d.ts",
+      "import": "./dist/vue/entries/overdue-notice.js"
+    },
+    "./vue/payment-confirmation": {
+      "types": "./dist/vue/entries/payment-confirmation.d.ts",
+      "import": "./dist/vue/entries/payment-confirmation.js"
+    },
+    "./vue/payment-method-form": {
+      "types": "./dist/vue/entries/payment-method-form.d.ts",
+      "import": "./dist/vue/entries/payment-method-form.js"
+    },
+    "./vue/payment-method-selector": {
+      "types": "./dist/vue/entries/payment-method-selector.d.ts",
+      "import": "./dist/vue/entries/payment-method-selector.js"
+    },
+    "./vue/payment-schedule": {
+      "types": "./dist/vue/entries/payment-schedule.d.ts",
+      "import": "./dist/vue/entries/payment-schedule.js"
+    },
+    "./vue/payment-status": {
+      "types": "./dist/vue/entries/payment-status.d.ts",
+      "import": "./dist/vue/entries/payment-status.js"
+    },
+    "./vue/plan-change-summary": {
+      "types": "./dist/vue/entries/plan-change-summary.d.ts",
+      "import": "./dist/vue/entries/plan-change-summary.js"
+    },
+    "./vue/plan-comparison": {
+      "types": "./dist/vue/entries/plan-comparison.d.ts",
+      "import": "./dist/vue/entries/plan-comparison.js"
+    },
+    "./vue/product-card": {
+      "types": "./dist/vue/entries/product-card.d.ts",
+      "import": "./dist/vue/entries/product-card.js"
+    },
+    "./vue/product-selector": {
+      "types": "./dist/vue/entries/product-selector.d.ts",
+      "import": "./dist/vue/entries/product-selector.js"
+    },
+    "./vue/quantity-selector": {
+      "types": "./dist/vue/entries/quantity-selector.d.ts",
+      "import": "./dist/vue/entries/quantity-selector.js"
+    },
+    "./vue/receipt-preview": {
+      "types": "./dist/vue/entries/receipt-preview.d.ts",
+      "import": "./dist/vue/entries/receipt-preview.js"
+    },
+    "./vue/refund-summary": {
+      "types": "./dist/vue/entries/refund-summary.d.ts",
+      "import": "./dist/vue/entries/refund-summary.js"
+    },
+    "./vue/renewal-notice": {
+      "types": "./dist/vue/entries/renewal-notice.d.ts",
+      "import": "./dist/vue/entries/renewal-notice.js"
+    },
+    "./vue/secure-payment-notice": {
+      "types": "./dist/vue/entries/secure-payment-notice.d.ts",
+      "import": "./dist/vue/entries/secure-payment-notice.js"
+    },
+    "./vue/subscription-card": {
+      "types": "./dist/vue/entries/subscription-card.d.ts",
+      "import": "./dist/vue/entries/subscription-card.js"
+    },
+    "./vue/transaction-details": {
+      "types": "./dist/vue/entries/transaction-details.d.ts",
+      "import": "./dist/vue/entries/transaction-details.js"
+    },
+    "./vue/transaction-list": {
+      "types": "./dist/vue/entries/transaction-list.d.ts",
+      "import": "./dist/vue/entries/transaction-list.js"
     }
   },
   "files": [

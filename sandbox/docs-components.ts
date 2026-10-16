@@ -1,4 +1,6 @@
 export const docsComponents = [
+  {name:"VSecureInput",category:"forms",aliasOf:""},
+  {name:"VCodeInput",category:"forms",aliasOf:""},
   {
     "name": "VButton",
     "category": "foundations",
@@ -46,12 +48,12 @@ export const docsComponents = [
   },
   {
     "name": "VUserMenu",
-    "category": "navigation",
+    "category": "components",
     "aliasOf": ""
   },
   {
     "name": "VAppHeader",
-    "category": "layout",
+    "category": "components",
     "aliasOf": ""
   },
   {
@@ -176,12 +178,12 @@ export const docsComponents = [
   },
   {
     "name": "VSidebar",
-    "category": "navigation",
+    "category": "components",
     "aliasOf": ""
   },
   {
     "name": "VAppSwitcher",
-    "category": "navigation",
+    "category": "components",
     "aliasOf": ""
   },
   {
@@ -221,7 +223,7 @@ export const docsComponents = [
   },
   {
     "name": "VIdentitySignIn",
-    "category": "navigation",
+    "category": "components",
     "aliasOf": ""
   },
   {
@@ -261,7 +263,7 @@ export const docsComponents = [
   },
   {
     "name": "VBottomNavigation",
-    "category": "navigation",
+    "category": "components",
     "aliasOf": ""
   },
   {
@@ -511,7 +513,7 @@ export const docsComponents = [
   },
   {
     "name": "VAvatarEditor",
-    "category": "navigation",
+    "category": "forms",
     "aliasOf": ""
   },
   {
@@ -588,5 +590,35 @@ export const docsComponents = [
     "name": "VFloatingPopover",
     "category": "feedback",
     "aliasOf": ""
-  }
+  },
+  {name:"VProductCard", category:"commerce", aliasOf:""},
+  {name:"VProductSelector", category:"commerce", aliasOf:""},
+  {name:"VQuantitySelector", category:"commerce", aliasOf:""},
+  {name:"VDiscountCode", category:"commerce", aliasOf:""},
+  {name:"VDiscountBadge", category:"commerce", aliasOf:""},
+  {name:"VBillingCycleSelector", category:"commerce", aliasOf:""},
+  {name:"VPlanComparison", category:"commerce", aliasOf:""},
+  {name:"VCheckoutSteps", category:"commerce", aliasOf:""},
+  {name:"VPaymentMethodSelector", category:"commerce", aliasOf:""},
+  {name:"VPaymentMethodForm", category:"commerce", aliasOf:""},
+  {name:"VSecurePaymentNotice", category:"commerce", aliasOf:""},
+  {name:"VPaymentSchedule", category:"commerce", aliasOf:""},
+  {name:"VCheckoutSummary", category:"commerce", aliasOf:""},
+  {name:"VPaymentStatus", category:"commerce", aliasOf:""},
+  {name:"VPaymentConfirmation", category:"commerce", aliasOf:""},
+  {name:"VInvoiceCard", category:"commerce", aliasOf:""},
+  {name:"VInvoiceLineItems", category:"commerce", aliasOf:""},
+  {name:"VInvoiceTimeline", category:"commerce", aliasOf:""},
+  {name:"VReceiptPreview", category:"commerce", aliasOf:""},
+  {name:"VSubscriptionCard", category:"commerce", aliasOf:""},
+  {name:"VPlanChangeSummary", category:"commerce", aliasOf:""},
+  {name:"VRenewalNotice", category:"commerce", aliasOf:""},
+  {name:"VOverdueNotice", category:"commerce", aliasOf:""},
+  {name:"VTransactionList", category:"commerce", aliasOf:""},
+  {name:"VTransactionDetails", category:"commerce", aliasOf:""},
+  {name:"VRefundSummary", category:"commerce", aliasOf:""},
+  {name:"VAccountBalance", category:"commerce", aliasOf:""},
+  {name:"VFeeBreakdown", category:"commerce", aliasOf:""},
+  {"name":"VSettingsLinkCard","category":"components","aliasOf":""},
+  {"name":"VPaymentBrandIcon","category":"commerce","aliasOf":""}
 ] as const;

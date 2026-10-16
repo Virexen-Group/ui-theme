@@ -1,0 +1,9 @@
+<script setup lang="ts">
+import {ref} from 'vue';import VBottomNavigation from '../src/components/navigation/VBottomNavigation.vue';
+const active=ref('home');const variant=ref<'classic'|'minimal'|'indicator'|'pill'|'floating'|'raised'>('pill');const labels=ref(true);
+const items=[{id:'home',label:'Home',icon:'home'},{id:'wallet',label:'Wallet',icon:'finance'},{id:'analytics',label:'Analytics',icon:'chart'},{id:'settings',label:'Settings',icon:'settings'}];
+const variants=['classic','minimal','indicator','pill','floating','raised'] as const;
+</script><template><main style="max-width:1100px;margin:30px auto;padding:18px;font-family:Manrope,system-ui"><a href="/components.html">← Application components</a> · <a href="/">Documentation home</a><h1>Bottom navigation</h1><p>Try six designs. In an application, the nav is fixed to the bottom. Previews are deliberately contained.</p>
+<div style="display:flex;gap:18px;align-items:center;margin-bottom:24px;flex-wrap:wrap"><label>Design <select v-model="variant"><option v-for="v in variants" :key="v">{{v}}</option></select></label><label><input v-model="labels" type="checkbox"/> Show labels</label><label>Active: {{active}}</label></div>
+<div style="padding:30px 20px;background:var(--vx-input,#f1f4f9);border-radius:18px;max-width:550px"><VBottomNavigation v-model="active" :items="items" :variant="variant" :show-labels="labels" preview visibility="always"/></div>
+<h2>All variants</h2><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px"><section v-for="v in variants" :key="v" style="border:1px solid #dbe2ed;border-radius:16px;padding:16px"><strong>{{v}}</strong><div style="margin-top:15px"><VBottomNavigation v-model="active" :items="items" :variant="v" preview visibility="always"/></div></section></div></main></template>
