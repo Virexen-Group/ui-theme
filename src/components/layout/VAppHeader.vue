@@ -11,7 +11,7 @@ const props = withDefaults(defineProps<{
   brandSelectable?: boolean; brandOptions?: HeaderBrandOption[]; brandSelectionAction?: 'emit' | 'navigate' | 'both'; selectedBrandId?: string;
   showSearch?: boolean; user?: UserMenuAccount | null; userItems?: UserMenuItem[]; userAppearance?: UserAppearance;
   sticky?: boolean; showNotifications?: boolean; notificationCount?: number;
-  notificationHref?: string; userShowAppearance?: boolean; userSupportHref?: string;
+  notificationHref?: string; userShowAppearance?: boolean; userSupportHref?: string; userAppVersion?: string;
   showBrand?: boolean; showLogo?: boolean; showAppSwitcher?: boolean; launcherApps?: VirexenApp[]; launcherOtherApps?: VirexenApp[]; activeAppId?: string;
   surface?: 'subtle' | 'solid' | 'transparent';
 }>(), {
@@ -62,7 +62,7 @@ function chooseBrand(brand: HeaderBrandOption) { brandOpen.value = false; if (pr
       <a v-if="showNotifications && notificationHref" class="vx-app-header__action" :href="notificationHref" aria-label="Notifications" title="Notifications"><VIcon name="bell-ring" :size="20" /><span v-if="notificationCount>0" class="vx-app-header__count">{{ notificationCount>99?'99+':notificationCount }}</span></a>
       <button v-else-if="showNotifications" type="button" class="vx-app-header__action" aria-label="Notifications" title="Notifications" @click="emit('notificationsClick')"><VIcon name="bell-ring" :size="20" /><span v-if="notificationCount>0" class="vx-app-header__count">{{ notificationCount>99?'99+':notificationCount }}</span></button>
       <slot name="actions-end" />
-      <VUserMenu :user="user" :items="userItems" :appearance="userAppearance" :show-appearance="userShowAppearance" :support-href="userSupportHref" @appearance-change="emit('userAppearanceChange', $event)" @select="id => emit('menuSelect', id)" @sign-in="emit('signIn')" />
+      <VUserMenu :user="user" :items="userItems" :appearance="userAppearance" :show-appearance="userShowAppearance" :support-href="userSupportHref" :app-version="userAppVersion" @appearance-change="emit('userAppearanceChange', $event)" @select="id => emit('menuSelect', id)" @sign-in="emit('signIn')" />
     </div>
   </header>
 </template>

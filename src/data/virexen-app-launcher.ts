@@ -5,6 +5,7 @@ export const VIREXEN_LAUNCHER_APPS = [
   { id: 'Virexen-Pay', label: 'Virexen Pay', href: 'https://pay.virexen.com' },
   { id: 'My-Virexen', label: 'My Virexen', href: 'https://my.virexen.com' },
   { id: 'Virexen-Workspace', label: 'Workspace', href: 'https://workspace.virexen.com' },
+  { id: 'Virexen-CMS', label: 'Virexen CMS', href: 'https://cms.virexen.com' },
   { id: 'Virexen-Support', label: 'Support', href: 'https://support.virexen.com' },
   { id: 'Marlo', label: 'Marlo', href: 'https://marlo.virexen.com' },
 ].map(app => ({ ...app, logoUrl: VIREXEN_PRODUCT_BRANDS[app.id as keyof typeof VIREXEN_PRODUCT_BRANDS].svg }));

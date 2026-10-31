@@ -20,6 +20,15 @@ Set `:user-show-appearance="false"` to omit the Light/Dark/System selector. In a
 
 The header no longer renders a support icon. It still supports search, launcher, notifications, and the account picker. Its menu surface follows `data-vx-theme="light"` / `"dark"` on the root and accepts the existing semantic colour tokens. For automatic system mode, configure the theme composable used by your app.
 
+The dropdown footer shows the host app's version next to the Privacy link. Each app passes its own, e.g. from its `package.json`: `app-version` on `VUserMenu`, or `user-app-version` on `VAppHeader`. `"1.1.1"` and `"v1.1.1"` both render as `v1.1.1`; with no version the slot is left blank. An explicit `footer-text` still overrides the version. `:show-footer="false"` hides the footer.
+
+```vue
+<script setup lang="ts">
+import { version } from '../package.json';
+</script>
+<VAppHeader :user="user" :user-app-version="version" />
+```
+
 `useDefaultItems` is retained as a deprecated prop for compatibility but has no effect: app items must be provided explicitly.
 
 Preview: `http://127.0.0.1:5173/header.html` (click the account control).
