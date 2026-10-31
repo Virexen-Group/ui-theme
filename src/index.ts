@@ -19,6 +19,7 @@ export { default as VStack } from './components/layout/VStack.vue';
 export { default as VEmptyState } from './components/layout/VEmptyState.vue';
 export { default as VBadge } from './components/feedback/VBadge.vue';
 export { default as VProgress } from './components/feedback/VProgress.vue';
+export { default as VSkeletonLayout } from './components/feedback/VSkeletonLayout.vue';
 export { default as VSkeleton } from './components/feedback/VSkeleton.vue';
 export { default as VSwitch } from './components/forms/VSwitch.vue';
 export { default as VDatePicker } from './components/forms/VDatePicker.vue';
@@ -197,3 +198,7 @@ export {default as VSettingsLinkCard} from './components/navigation/VSettingsLin
 export {default as VPaymentBrandIcon} from './components/commerce/VPaymentBrandIcon.vue';
 
 export {default as VAccountListItem} from './components/account/VAccountListItem.vue';
+
+export {default as VWelcomeBanner} from './components/dashboard/VWelcomeBanner.vue';
+export {default as VAccountManagerCard} from './components/dashboard/VAccountManagerCard.vue';
+export type {AccountManager} from './components/dashboard/VAccountManagerCard.vue';

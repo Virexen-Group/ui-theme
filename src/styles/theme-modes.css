@@ -16,3 +16,6 @@
 .vx-theme-toggle select {min-height:40px;padding:7px 30px 7px 10px;background:var(--color-panel-strong);border:1px solid var(--color-line-strong);border-radius:10px;color:var(--color-text);font:inherit}
 /* Tokens consumed by CSS-only and Vue components. */
 :root[data-vx-theme="dark"] .catalog-card, :root[data-vx-theme="dark"] .catalog-header {background:var(--color-panel-strong);color:var(--color-text)}
+
+:root{--vx-modal-surface:#fff;--vx-notification-surface:#fff}
+:root[data-vx-theme="dark"],:root[data-theme="dark"]{--vx-modal-surface:#192336;--vx-notification-surface:#192336}

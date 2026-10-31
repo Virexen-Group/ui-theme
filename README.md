@@ -156,3 +156,30 @@ Visit `/foundations.html#official-app-icon-gallery` to preview CampPulze, CampPu
 ## Interactive component showcases
 
 The documentation now contains the original component styles within its current shared navigation: `components.html#button-packs` for all four button packs and states; `foundations.html#theme-playground` for Default, Calm, Bold and Enterprise; and `feedback.html#toast-playground` for notification variants and real toasts. Every showcase includes View code and Copy code controls. The original `packs.html` playground is kept for backward compatibility.
+
+
+## Command center dashboard (0.6.12)
+
+See [the reusable command-center components, theme and external-save integration](docs/COMMAND-CENTER.md). This release adds VWelcomeBanner/VAccountManagerCard and focused dashboard-grid/metric-tile imports. Header/sidebar implementations are unchanged.
+
+### Skeleton loading (shared across apps)
+
+Import `VSkeleton` and `VSkeletonLayout` from `@virexen-group/ui-theme/vue` (or
+`/vue/skeleton` and `/vue/skeleton-layout`) and include the shared `vue.css` stylesheet.
+
+```vue
+<VSkeletonLayout v-if="loading" variant="form" label="Loading settings…" />
+<form v-else><!-- Loaded fields --></form>
+```
+
+Presets: `form`, `table`, `list`, `cards`, `profile`, `dashboard`. Use `rows` and `columns`
+to match the loaded layout, or the default slot for a bespoke skeleton made with `VSkeleton`.
+The primitive preserves `width`/`height` and adds `variant="text|rectangle|circle"` and
+`animation="shimmer|pulse|none"`. Semantic colour tokens support light/dark themes; reduced
+motion disables animations automatically. Layouts announce one loading status and hide the
+placeholder shapes from assistive technology. Never put actual form controls in a skeleton slot.
+
+`VModal` accepts `loading` / `loadingLabel`; its existing title and close control remain usable
+while its content shows a form skeleton. `VDataTable` accepts the same props and replaces empty
+rows and pagination with a table skeleton. Keep spinners on action buttons for save/upload
+progress; skeletons represent content that has not loaded, not a completed save.
