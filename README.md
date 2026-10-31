@@ -100,7 +100,7 @@ Open `http://127.0.0.1:5173/sidebar.html` or choose **Navigation → Header & si
 
 ## Public Virexen launcher & Other Apps
 
-`VAppHeader` includes public destinations for Virexen, Virexen Pay, My Virexen, Workspace, Support and Marlo. Cloud, CMS, Identity and Developer are not default launcher entries. The brand assets remain exportable separately.
+`VAppHeader` includes public destinations for Virexen, Virexen Pay, My Virexen, Workspace, Virexen CMS, Support and Marlo. Cloud, Identity and Developer are not default launcher entries. The brand assets remain exportable separately.
 
 Pass `launcherOtherApps` from your authenticated backend account entitlements. The UI library **does not fetch or grant permissions** and must not contain private endpoints or authentication tokens. For example:
 
