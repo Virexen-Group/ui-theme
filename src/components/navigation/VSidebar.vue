@@ -11,6 +11,8 @@ export interface SidebarItem {
   disabled?: boolean;
   badge?: string | number;
   children?: SidebarItem[];
+  /** Optional section heading. A heading renders before the first item of each run of equal sections. */
+  section?: string;
 }
 
 const props = withDefaults(defineProps<{
@@ -102,7 +104,9 @@ watch(() => props.mobileOpen, open => { if (!open) flyoutId.value = null; });
         <div v-else class="vx-sidebar__static-brand"><img v-if="showLogo && (isExpanded || mobileOpen ? logoUrl : compactLogoUrl||logoUrl)" :src="isExpanded || mobileOpen ? logoUrl : compactLogoUrl||logoUrl" alt="" /><strong v-if="isExpanded || mobileOpen">{{brand}}</strong></div>
       </div>
       <nav class="vx-sidebar__nav" :aria-label="ariaLabel">
-        <div v-for="item in items" :key="item.id" class="vx-sidebar__group" @mouseenter="showFlyout($event, item)" @mouseleave="scheduleHide">
+        <template v-for="(item, index) in items" :key="item.id">
+        <p v-if="item.section && item.section !== items[index - 1]?.section" class="vx-sidebar__section" :class="{ 'vx-sidebar__section--first': index === 0 }"><span class="vx-sidebar__section-label">{{ item.section }}</span></p>
+        <div class="vx-sidebar__group" @mouseenter="showFlyout($event, item)" @mouseleave="scheduleHide">
           <button type="button" :disabled="item.disabled" :title="!isExpanded && !mobileOpen && !item.children?.length ? item.label : undefined" :aria-label="!isExpanded && !mobileOpen ? item.label : undefined" :aria-current="activeId === item.id ? 'page' : undefined" :aria-expanded="item.children?.length ? (expandedGroups.includes(item.id) || (flyoutId === item.id && !isExpanded)) : undefined" :class="['vx-sidebar__item', { 'vx-sidebar__item--active': isActive(item) }]" @click="select(item)">
             <VIcon :name="item.icon||'folder'" />
             <span class="vx-sidebar__label">{{ item.label }}</span>
@@ -113,6 +117,7 @@ watch(() => props.mobileOpen, open => { if (!open) flyoutId.value = null; });
             <button v-for="child in item.children" :key="child.id" type="button" :disabled="child.disabled" :class="['vx-sidebar__subitem', {'vx-sidebar__subitem--active':activeId === child.id}]" @click="select(child)">{{ child.label }}<span v-if="child.badge !== undefined" class="vx-sidebar__badge">{{ child.badge }}</span></button>
           </div>
         </div>
+        </template>
       </nav>
       <button class="vx-sidebar__collapse" type="button" :aria-label="isExpanded ? 'Collapse navigation' : 'Expand navigation'" @click="emit('update:expanded', !isExpanded)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" :style="{ transform: isExpanded ? 'rotate(180deg)' : undefined }"><path d="m9 6 6 6-6 6"/></svg>

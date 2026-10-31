@@ -7,6 +7,8 @@
 .vx-sidebar__icon-button { border: 0; border-radius: 9px; background: transparent; color: inherit; width: 38px; height: 38px; cursor: pointer; font-size: 24px; }
 .vx-sidebar__nav { padding: 12px 10px; overflow-y: auto; min-height: 0; flex: 1; }
 .vx-sidebar__group { position: relative; margin-bottom: 4px; }
+.vx-sidebar__section { margin: 18px 12px 6px; font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--color-muted, #5b6b8c); }
+.vx-sidebar__section--first { margin-top: 4px; }
 .vx-sidebar__item { display: flex; align-items: center; gap: 15px; min-height: 48px; width: 100%; padding: 10px 13px; border: 0; border-radius: 11px; background: transparent; color: #23365c; text-align: left; cursor: pointer; font: 500 14px/1.35 var(--font-body,Manrope,system-ui,sans-serif); }
 .vx-sidebar__item:hover, .vx-sidebar__subitem:hover { background: #eef3ff; }
 .vx-sidebar__item--active, .vx-sidebar__item--active:hover { background: #e4edff; color: #1264f6; }
@@ -31,6 +33,10 @@
   .vx-sidebar:not(.vx-sidebar--expanded) .vx-sidebar__label, .vx-sidebar:not(.vx-sidebar--expanded) .vx-sidebar__badge, .vx-sidebar:not(.vx-sidebar--expanded) .vx-sidebar__chevron, .vx-sidebar:not(.vx-sidebar--expanded) .vx-sidebar__collapse-label { display:none; }
   .vx-sidebar:not(.vx-sidebar--expanded) .vx-sidebar__item { justify-content: center; padding: 10px; }
   .vx-sidebar:not(.vx-sidebar--expanded) .vx-sidebar__subitems { display: none; }
+  /* Collapsed rail: a section heading becomes a thin divider. */
+  .vx-sidebar:not(.vx-sidebar--expanded) .vx-sidebar__section { margin: 10px 14px; border-top: 1px solid var(--color-line, rgba(15, 23, 42, .08)); }
+  .vx-sidebar:not(.vx-sidebar--expanded) .vx-sidebar__section--first { display: none; }
+  .vx-sidebar:not(.vx-sidebar--expanded) .vx-sidebar__section-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .vx-sidebar__flyout { display: flex; flex-direction: column; position: fixed; z-index: 200; width: 234px; padding: 12px; border: 1px solid #e1e7f0; box-shadow: 0 16px 40px rgba(10,22,48,.14); border-radius: 14px; background: #fff; max-height: min(400px, 85vh); overflow-y: auto; }
   .vx-sidebar__flyout > strong { font-size: 13px; padding: 8px 10px 10px; }
   .vx-sidebar__flyout button:hover { background: #eef3ff; }

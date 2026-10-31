@@ -1,0 +1,126 @@
+/* Optional CampPulze / PulzeConnect appearance pack. Import after base/theme CSS.
+   Opt in with data-vx-pack="camp-forest" or .vx-camp-forest on the document root.
+   Does not change any other Virexen application's default appearance. */
+:is([data-vx-pack="camp-forest"], .vx-camp-forest) {
+  --color-bg: #f3f6f2;
+  --color-bg-deep: #e9efe7;
+  --color-panel: #ffffff;
+  --color-panel-strong: #ffffff;
+  --color-text: #173c2f;
+  --color-muted: #617267;
+  --color-line: #dce5db;
+  --color-line-strong: #c3d1c4;
+  --color-input-bg: #f7faf5;
+  --color-header-bg: #ffffff;
+  --color-highlight: #176348;
+  --color-success: #147747;
+  --color-warning: #94601e;
+  --color-danger: #b6383b;
+  --focus: 0 0 0 3px #31886538;
+  --vx-primary: #176348;
+  --vx-on-primary: #ffffff;
+  --vx-primary-soft: #e8f1e6;
+  --vx-surface: #ffffff;
+  --vx-input: #f7faf5;
+  --vx-text: #173c2f;
+  --vx-muted: #617267;
+  --vx-text-muted: #617267;
+  --vx-surface-muted: #f7faf5;
+  --vx-border: #dce5db;
+  --vx-focus: 0 0 0 3px #31886538;
+  --vx-modal-surface: #ffffff;
+  --vx-notification-surface: #ffffff;
+  --vx-camp-canvas: #f3f6f2;
+  --vx-camp-surface: #ffffff;
+  --vx-camp-surface-soft: #f7faf5;
+  --vx-camp-border: #dce5db;
+  --vx-camp-text: #173c2f;
+  --vx-camp-muted: #617267;
+  --vx-camp-forest: #153f30;
+  --vx-camp-forest-muted: #d8e8db;
+  --vx-camp-selected: #e8f1e6;
+  --vx-camp-selected-text: #15583f;
+  --vx-camp-heading: #143e2e;
+  --vx-camp-hero-wash: linear-gradient(90deg, #0c261fcc, #0c261f28);
+  --vx-camp-card-shadow: 0 5px 22px #24403208;
+  --vx-bottomnav-surface: #153f30;
+  --vx-bottomnav-text: #ffffff;
+  --vx-bottomnav-muted: #dae8dc;
+  --vx-bottomnav-active: #ffffff;
+  --vx-bottomnav-active-bg: #2d5f48;
+  --vx-bottomnav-border: #2f5845;
+}
+/* Support the shared theme controller and older host apps while they migrate. */
+:is([data-vx-theme="dark"], [data-theme="dark"]):is([data-vx-pack="camp-forest"], .vx-camp-forest),
+:is([data-vx-theme="dark"], [data-theme="dark"]) :is([data-vx-pack="camp-forest"], .vx-camp-forest) {
+  --color-bg: #0e1e17;
+  --color-bg-deep: #0a1711;
+  --color-panel: #162a20;
+  --color-panel-strong: #162a20;
+  --color-text: #e6efe3;
+  --color-muted: #adbeac;
+  --color-line: #304638;
+  --color-line-strong: #4c6653;
+  --color-input-bg: #1b3125;
+  --color-header-bg: #162a20;
+  --color-highlight: #7ed7ad;
+  --color-success: #7cdaa8;
+  --color-warning: #e8bc77;
+  --color-danger: #f29d9e;
+  --vx-primary: #7ed7ad;
+  --vx-on-primary: #10291d;
+  --vx-primary-soft: #234435;
+  --vx-surface: #162a20;
+  --vx-input: #1b3125;
+  --vx-text: #e6efe3;
+  --vx-muted: #adbeac;
+  --vx-text-muted: #adbeac;
+  --vx-surface-muted: #1b3125;
+  --vx-border: #304638;
+  --vx-modal-surface: #162a20;
+  --vx-notification-surface: #162a20;
+  --vx-camp-canvas: #0e1e17;
+  --vx-camp-surface: #162a20;
+  --vx-camp-surface-soft: #1b3125;
+  --vx-camp-border: #304638;
+  --vx-camp-text: #e6efe3;
+  --vx-camp-muted: #adbeac;
+  --vx-camp-selected: #234435;
+  --vx-camp-selected-text: #b4eccd;
+  --vx-camp-heading: #edf4e9;
+  --vx-camp-card-shadow: 0 5px 22px #00000012;
+  --vx-camp-hero-wash: linear-gradient(90deg, #071710e8, #07171045);
+}
+/* Command Center and Sidebar define local palette values; explicitly rebind
+   those existing component tokens rather than introducing a parallel shell. */
+:is([data-vx-pack="camp-forest"], .vx-camp-forest) .vx-command-center,
+.vx-command-center:is([data-vx-pack="camp-forest"], .vx-camp-forest),
+:is([data-vx-theme], [data-theme]):is([data-vx-pack="camp-forest"], .vx-camp-forest) .vx-command-center,
+:is([data-vx-theme], [data-theme]) :is([data-vx-pack="camp-forest"], .vx-camp-forest) .vx-command-center {
+  --vx-dashboard-panel: var(--vx-camp-surface);
+  --vx-dashboard-canvas: var(--vx-camp-canvas);
+  --vx-dashboard-line: var(--vx-camp-border);
+  --vx-dashboard-muted: var(--vx-camp-muted);
+  --vx-dashboard-text: var(--vx-camp-text);
+  --vx-dashboard-glow: var(--vx-camp-selected);
+  --vx-primary: var(--color-highlight);
+}
+:is([data-vx-pack="camp-forest"], .vx-camp-forest) .vx-sidebar {
+  --vx-side-bg: var(--vx-camp-surface);
+  --vx-side-accent: var(--vx-primary);
+  --vx-side-border: var(--vx-camp-border);
+}
+:is([data-vx-pack="camp-forest"], .vx-camp-forest) .vx-sidebar__item,
+:is([data-vx-pack="camp-forest"], .vx-camp-forest) .vx-sidebar__subitem,
+:is([data-vx-pack="camp-forest"], .vx-camp-forest) .vx-sidebar__flyout button { color: var(--vx-text); }
+:is([data-vx-pack="camp-forest"], .vx-camp-forest) .vx-sidebar :is(.vx-sidebar__item:hover, .vx-sidebar__subitem:hover, .vx-sidebar__item--active, .vx-sidebar__item--active:hover, .vx-sidebar__subitem--active) {
+  background: var(--vx-camp-selected);
+  color: var(--vx-camp-selected-text);
+}
+:is([data-vx-pack="camp-forest"], .vx-camp-forest) .vx-sidebar__collapse,
+:is([data-vx-pack="camp-forest"], .vx-camp-forest) .vx-sidebar__flyout { background: var(--vx-surface); color: var(--vx-text); }
+:is([data-vx-pack="camp-forest"], .vx-camp-forest) .vx-sidebar__badge { background: var(--vx-camp-selected); color: var(--vx-camp-selected-text); }
+:is([data-vx-pack="camp-forest"], .vx-camp-forest) .vx-sidebar__subitems { border-color: var(--vx-border); }
+:is([data-vx-pack="camp-forest"], .vx-camp-forest) .vx-sidebar :is(button:focus-visible, a:focus-visible) { outline-color: var(--vx-primary); }
+:is([data-vx-pack="camp-forest"], .vx-camp-forest) .vx-button--primary { color: var(--vx-on-primary); }
+:is([data-vx-pack="camp-forest"], .vx-camp-forest) .vx-data th { background: var(--vx-input); }

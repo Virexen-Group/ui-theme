@@ -27,3 +27,14 @@ Header `surface` options: `subtle` (default), `solid`, `transparent`. The subtle
 The header app launcher defaults to the Virexen-only catalogue. Sidebar apps are provided by the consuming application and can be empty. `showLogo` does not hide app names. Existing `showBrand` and `brandingPlacement` options remain supported.
 
 Preview at `/header.html` and `/sidebar.html`.
+
+## Sidebar sections
+
+Give items an optional `section` to group them under small headings. A heading renders before the first item of each run of items that share a section; items without one render no heading. On the collapsed desktop rail a heading becomes a thin divider, and its text stays available to screen readers.
+
+```ts
+const items = [
+  { id: 'overview', label: 'Overview', icon: 'home', section: 'General' },
+  { id: 'health', label: 'System health', icon: 'activity', section: 'Platform operations' },
+];
+```
