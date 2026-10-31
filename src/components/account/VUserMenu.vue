@@ -8,11 +8,11 @@ const props = withDefaults(defineProps<{
   user?: UserMenuAccount | null; items?: UserMenuItem[]; signInLabel?: string;
   align?: 'left' | 'right'; appearance?: UserAppearance; showAppearance?: boolean;
   showAccountSecurity?: boolean; showFooter?: boolean; privacyHref?: string;
-  footerText?: string; useDefaultItems?: boolean; supportHref?: string; logoutLabel?: string;
+  footerText?: string; appVersion?: string; useDefaultItems?: boolean; supportHref?: string; logoutLabel?: string;
 }>(), {
   items: () => [], signInLabel: 'Sign in', align: 'right', appearance: 'system',
   showAppearance: true, showAccountSecurity: true, showFooter: true,
-  privacyHref: 'https://virexen.com/privacy', footerText: 'Secured by Virexen Identity', useDefaultItems: false,
+  privacyHref: 'https://virexen.com/privacy', useDefaultItems: false,
   supportHref: 'https://support.virexen.com', logoutLabel: 'Logout'
 });
 const emit = defineEmits<{ select: [id: string]; signIn: []; appearanceChange: [value: UserAppearance]; 'update:appearance': [value: UserAppearance] }>();
@@ -21,6 +21,8 @@ const root = ref<HTMLElement | null>(null);
 const appearanceValue = ref<UserAppearance>(props.appearance);
 watch(() => props.appearance, value => { appearanceValue.value = value; });
 const menuItems = computed(() => props.items.filter(item => !['logout', 'signout', 'sign-out', 'support', 'help'].includes(item.id.toLowerCase())));
+// An explicit footerText wins; otherwise the footer shows the host app's version ("1.1.1" or "v1.1.1" → "v1.1.1").
+const footerLabel = computed(() => props.footerText ?? (props.appVersion?.trim() ? `v${props.appVersion.trim().replace(/^v/i, '')}` : ''));
 const initials = computed(() => props.user?.initials || props.user?.name?.split(/\s+/).map(x => x[0]).slice(0, 2).join('').toUpperCase() || '?');
 function choose(id: string) { open.value = false; emit('select', id); }
 function setAppearance(value: UserAppearance) { appearanceValue.value = value; emit('update:appearance', value); emit('appearanceChange', value); }
@@ -72,7 +74,7 @@ function blur(e: FocusEvent) { if (!(e.relatedTarget instanceof Node && root.val
           </button>
         </div>
         <slot name="footer" />
-        <div v-if="showFooter" class="vx-user-menu__legal"><span>{{ footerText }}</span><a :href="privacyHref" target="_blank" rel="noopener noreferrer">Privacy</a></div>
+        <div v-if="showFooter" class="vx-user-menu__legal"><span>{{ footerLabel }}</span><a :href="privacyHref" target="_blank" rel="noopener noreferrer">Privacy</a></div>
       </div>
     </template>
   </div>

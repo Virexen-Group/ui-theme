@@ -141,7 +141,7 @@ Visit `/foundations.html#official-app-icon-gallery` to preview CampPulze, CampPu
 
 ## User account menu
 
-`VUserMenu` is the existing shared account dropdown, redesigned with a compact dark menu, account identity summary, profile/settings/workspaces/notifications actions, Light/Dark/System selector, Help & support, Sign out, and Identity footer. Default rows are used only when `items` is empty and `useDefaultItems` is true.
+`VUserMenu` is the existing shared account dropdown, redesigned with a compact dark menu, account identity summary, profile/settings/workspaces/notifications actions, Light/Dark/System selector, Help & support, Sign out, and a footer with the app's version (`app-version`, or `user-app-version` on `VAppHeader`) and Privacy link. Default rows are used only when `items` is empty and `useDefaultItems` is true.
 
 ```vue
 <VAppHeader :user="{ name: 'Demo User', email: 'demo@virexen.com' }"
