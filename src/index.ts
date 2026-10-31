@@ -105,6 +105,7 @@ export type { VirexenUIConfig, VxThemePreset, VxAppearance } from './config/vire
 
 // Virexen Dashboard & Motion
 export { default as VDashboardGrid } from './components/dashboard/VDashboardGrid.vue';
+export { default as VWidgetCard } from './components/dashboard/VWidgetCard.vue';
 export { default as VMetricTile } from './components/dashboard/VMetricTile.vue';
 export { default as VChartTile } from './components/dashboard/VChartTile.vue';
 export { default as VActionTile } from './components/dashboard/VActionTile.vue';
