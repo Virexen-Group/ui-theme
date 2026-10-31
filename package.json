@@ -1,6 +1,6 @@
 {
   "name": "@virexen-group/ui-theme",
-  "version": "0.6.11",
+  "version": "0.6.21",
   "private": false,
   "type": "module",
   "description": "Shared Virexen Master UI with typed manifests, appearance presets, commerce components and branded email templates",
@@ -603,10 +603,38 @@
       "types": "./dist/vue/entries/account-list-item.d.ts",
       "import": "./dist/vue/entries/account-list-item.js"
     },
-    "./vue.css": "./dist/vue/ui-theme.css"
+    "./vue.css": "./dist/vue/ui-theme.css",
+    "./command-center.css": "./dist/command-center.css",
+    "./vue/welcome-banner": {
+      "types": "./dist/vue/entries/welcome-banner.d.ts",
+      "import": "./dist/vue/entries/welcome-banner.js"
+    },
+    "./vue/account-manager-card": {
+      "types": "./dist/vue/entries/account-manager-card.d.ts",
+      "import": "./dist/vue/entries/account-manager-card.js"
+    },
+    "./vue/dashboard-grid": {
+      "types": "./dist/vue/entries/dashboard-grid.d.ts",
+      "import": "./dist/vue/entries/dashboard-grid.js"
+    },
+    "./vue/widget-card": {
+      "types": "./dist/vue/entries/widget-card.d.ts",
+      "import": "./dist/vue/entries/widget-card.js"
+    },
+    "./vue/metric-tile": {
+      "types": "./dist/vue/entries/metric-tile.d.ts",
+      "import": "./dist/vue/entries/metric-tile.js"
+    },
+    "./vue/skeleton-layout": {
+      "types": "./dist/vue/entries/skeleton-layout.d.ts",
+      "import": "./dist/vue/entries/skeleton-layout.js"
+    },
+    "./camp-forest.css": "./dist/camp-forest.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "docs/COMMAND-CENTER.md",
+    "docs/CAMP-FOREST.md"
   ],
   "scripts": {
     "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",

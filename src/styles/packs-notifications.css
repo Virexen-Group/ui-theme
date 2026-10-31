@@ -27,3 +27,8 @@
 .vx-confirm{width:min(450px,calc(100vw - 24px));padding:24px;border:1px solid var(--vx-border);border-radius:18px;box-shadow:0 30px 90px #0004;background:var(--vx-surface);color:var(--vx-text)}.vx-confirm::backdrop{background:#0d193a99}.vx-confirm h2{margin:0 0 10px}.vx-confirm p{margin:0 0 20px}.vx-confirm__label{display:grid;gap:8px}.vx-confirm__actions{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:10px;margin-top:24px}
 @media(min-width:640px){.vx-toast-stack{right:24px;top:24px}.vx-notification__body{flex-direction:row}}
 @media(prefers-reduced-motion:reduce){.vx-button,.vx-toast{transition:none;animation:none}.vx-button__spinner,.vx-toast__progress{animation:none}}
+
+/* Long diagnostics must wrap without pushing the dismiss control off screen. */
+.vx-notification__body,.vx-notification__body strong,.vx-notification__body span{min-width:0;max-width:100%;white-space:normal;overflow-wrap:anywhere;word-break:break-word}
+.vx-notification__icon,.vx-notification__dismiss{flex-shrink:0}
+.vx-toast .vx-notification{background:var(--vx-notification-surface,#fff)}
